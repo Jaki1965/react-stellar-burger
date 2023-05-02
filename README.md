@@ -6,3 +6,4 @@
 * Проверена функциональность ветки month-7/step-1
 * Проверочный коммит (commit 1)
 * Создана директория app-header, внутри котрой созданы два файла app-headre.jsx и app-header.module.css (commit 2)
+* Сделана пробная верстка AppHeader (commit 6)
