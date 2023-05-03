@@ -1,4 +1,4 @@
-.header {
+.header_nav {
   /* border: 1px solid yellow; */
   margin-left: auto;
   margin-right: auto;
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-.headerlist {
+.header_list {
   /* border: 1px solid rgb(232, 232, 223); */
   padding: 0;
   max-height: 56px;
@@ -23,16 +23,16 @@
   
 }
 
-.listelement {
-  /* border: 1px solid rgb(76, 104, 208);
-  border-radius: 40px; */
+.liste_lement {
+  border: 1px solid rgb(76, 104, 208);
+  border-radius: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
 }
 
-.pharagraph{
+.liste_lement_text{
  margin-top: 0;
  margin-bottom: 0;
 }
