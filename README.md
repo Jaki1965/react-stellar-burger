@@ -8,3 +8,4 @@
 * Создана директория app-header, внутри котрой созданы два файла app-headre.jsx и app-header.module.css (commit 2)
 * Сделана пробная верстка AppHeader (commit 6)
 * Сверстан header - возможно, что-то придется поправить, но в целом с учетом расположения элементов и цвета background - все сделано (commit 7)
+* Исправлена ошибка с отступами. Теперь отступы взяты из билиотеки //<li className={`${styles.listelement} pl-5 pr-5`}>// (commit 8)
