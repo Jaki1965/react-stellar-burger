@@ -1,0 +1,29 @@
+
+.sauces{
+  /* border: 1px solid white; */
+}
+.title {
+  /* border: 1px solid yellow; */
+}
+
+.sauces_list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  /* border: 1px solid rgb(255, 0, 102); */
+  width: 600px;
+  height: 472px;
+  display: grid;
+  grid-template-columns: repeat(2, 272px);
+  grid-template-rows: repeat(2, 208px);
+  grid-column-gap: 24px;
+  grid-row-gap: 32px;
+  justify-content: center;
+  align-content: center;
+
+
+}
+
+.sauces_list_item {
+  border: 1px dashed rgb(115, 0, 255);
+}

@@ -1,5 +1,10 @@
 
 .box_ingredients {
-  border: 2px solid blue;
+  /* border: 1px solid blue; */
   min-height: 900px;
+}
+
+.menu {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
 }
