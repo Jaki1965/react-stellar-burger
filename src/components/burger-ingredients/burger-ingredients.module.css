@@ -1,8 +1,4 @@
 
-.box_ingredients {
-  /* border: 1px solid blue; */
-  height: 900px;
-}
 
 .menu {
    display: grid;
@@ -17,7 +13,6 @@
 }
 
 .list {
-  /* border: 1px solid rgb(255, 0, 102); */
   display: flex;
   column-gap: 24px;
   flex-direction: row;
@@ -28,6 +23,4 @@
   row-gap: 32px;
 }
 
-.rolls_list_item {
-  /* border: 1px dashed rgb(115, 0, 255); */
-}
+
