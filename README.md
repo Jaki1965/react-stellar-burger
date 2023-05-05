@@ -13,3 +13,4 @@
 * Сверстаны заготовки блоков: BurgerIngradients и BurgerConstructor (commit 10)
 * Подготовлены шаблоны: BurgerIngredients - все инградиенты по категориям, IngredientSauces - блок "Соусы", IngredientCard - карточка инградиента. (commit 11)
 * ПРОМЕЖУТОЧНЫЙ КОММИТ (commit 12)
+* Сверстан инастроен блок - BurgerIngradients. Коммит перед чисткой структуры. Очень много лишних компонентов и лишних импортов (commit 13)

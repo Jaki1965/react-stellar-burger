@@ -12,12 +12,12 @@
 .scrollbar {
   padding: 0;
   height: 664px;
-  width: 648px;
+  width: 600px;
   overflow-y: scroll;
 }
 
 .list {
-  border: 1px solid rgb(255, 0, 102);
+  /* border: 1px solid rgb(255, 0, 102); */
   display: flex;
   column-gap: 24px;
   flex-direction: row;
@@ -29,5 +29,5 @@
 }
 
 .rolls_list_item {
-  border: 1px dashed rgb(115, 0, 255);
+  /* border: 1px dashed rgb(115, 0, 255); */
 }
