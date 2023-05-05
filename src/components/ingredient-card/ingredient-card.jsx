@@ -2,26 +2,24 @@
 import React from 'react';
 import {CurrencyIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import {Counter} from '@ya.praktikum/react-developer-burger-ui-components';
+import ProTypes from 'prop-types';
 import styles from './ingredient-card.module.css';
 
-function IngredientCard(props) {
+const IngredientCard = (props) => {
+  // console.log(props.data.price);
+ 
+
   return (
-    <div>
-      <div className={styles.image}>
-        <img src="https://code.s3.yandex.net/react/code/sauce-02.png"alt="" />
-      </div>
-      <div className={styles.price}>
-        <div className='text text_type_digits-small'>
-          20
+    <>
+      <li className={styles.card}>
+        <Counter count={1} size="default" extraClass="m-1" />
+        <img src="https://code.s3.yandex.net/react/code/bun-02.png" alt="" />
+        <div className={styles.price}>
+          <p className='text text_type_main-medium mr-2'>40</p>
+          <CurrencyIcon type="primary"  />
         </div>
-        <div className={styles.icon}>
-          <CurrencyIcon type="primary" />
-        </div>
-      </div>
-      <div className={`${styles.name} text text_type_main-small`}>
-        "Соус Spicy-X"
-      </div>
-    </div>
+      </li>
+    </>
   );
 }
 

@@ -1,10 +1,33 @@
 
 .box_ingredients {
   /* border: 1px solid blue; */
-  min-height: 900px;
+  height: 900px;
 }
 
 .menu {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
+}
+
+.scrollbar {
+  padding: 0;
+  height: 664px;
+  width: 648px;
+  overflow-y: scroll;
+}
+
+.list {
+  border: 1px solid rgb(255, 0, 102);
+  display: flex;
+  column-gap: 24px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding-left: 0;
+  row-gap: 32px;
+}
+
+.rolls_list_item {
+  border: 1px dashed rgb(115, 0, 255);
 }

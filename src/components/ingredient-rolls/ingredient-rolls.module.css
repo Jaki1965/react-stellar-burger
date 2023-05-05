@@ -1,0 +1,26 @@
+.rolls{
+  /* border: 1px solid white; */
+}
+.title {
+  /* border: 1px solid yellow; */
+}
+
+.rolls_list {
+   /* border: 1px solid rgb(255, 0, 102); */
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 600px;
+  height: 236px;
+  display: grid;
+  grid-template-columns: repeat(2, 272px);
+  grid-template-rows: 208px;
+  grid-column-gap: 24px;
+  grid-row-gap: 32px;
+  justify-content: center;
+  align-content: center;
+}
+
+.rolls_list_item {
+  border: 1px dashed rgb(115, 0, 255);
+}
