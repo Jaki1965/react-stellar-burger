@@ -14,11 +14,11 @@
 
 .list {
   display: flex;
-  column-gap: 24px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0;
+  column-gap: 24px; 
   padding-left: 0;
   row-gap: 32px;
 }

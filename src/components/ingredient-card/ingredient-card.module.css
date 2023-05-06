@@ -1,6 +1,5 @@
 
 .card {
-  /* border: 1px solid yellow; */
   width: 272px;
   height: 208px;
   list-style-type: none;
@@ -8,26 +7,18 @@
 }
 
 .icon{
-  /* border: 1px solid red; */
   width:24px;
   height: 24px;
   margin-left: 8px;
 }
 .price{
-  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
 
 }
-.image{
-  /* margin-left: 16px;
-  margin-right: 16px; */
-  /* border: 1px solid white; */
-  /* text-align: center; */
-} 
+
 .text{
-  /* border: 1px solid rgb(51, 134, 153); */
   text-align: center;
   white-space: normal;
 }

@@ -1,13 +1,14 @@
 
 .header_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   background-color: #1C1C21;
   max-height: 88px;
   width: 1920px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  
 }
 
 .header_list {
@@ -22,24 +23,13 @@
   
 }
 
-.liste_lement {
-  border: 1px solid rgb(76, 104, 208);
-  border-radius: 40px;
+.list_lement {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
 }
 
-.liste_lement_text{
- margin-top: 0;
- margin-bottom: 0;
-}
-
 .logopicture {
   margin:auto;
-}
-
-.logo {
-  margin-top: 4px;
 }
