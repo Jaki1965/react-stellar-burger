@@ -11,7 +11,7 @@ function App() {
         <AppHeader />
         <main className={styles.main}>
           <BurgerIngredients data={data} />
-          <BurgerConstructor />
+          <BurgerConstructor data={data}/>
         </main>
       </pre>
     </div>
@@ -19,3 +19,4 @@ function App() {
 }
 
 export default App;
+
