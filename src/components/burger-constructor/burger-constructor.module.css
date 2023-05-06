@@ -1,25 +1,11 @@
 
-/* .box_constructor{
-  border: 1px solid rgb(0, 255, 98);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-height: 900px;
-}
-
-.elementclosed{
-  border: 1px solid rgb(229, 255, 0);
-  display: flex;
-  align-self: center;
-  width: 536px; 
-} */
 
 .box_constructor {
   align-items: center;
   display: flex;
   flex-direction: column;
   margin-top: 100px;
-  max-height: 912px;
+  max-height: 800px;
   min-width: 600px;
   padding-bottom: 52px;
 }
@@ -30,13 +16,12 @@
   gap: 16px;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  width: 600px; 
+  width: 605px; 
 }
 
 .buns {
-  border: 1px solid red;
   align-self: center;
-  padding-left: 30px;
+  padding-left: 10px;
   width: 536px;
 }
 
