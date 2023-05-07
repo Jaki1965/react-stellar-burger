@@ -19,7 +19,7 @@ function BurgerIngredients(props) {
 
   const getDataCard = (data) => {
     return data.map(item => {
-      return <IngredientCard key={item._id} data={item} />
+      return <IngredientCard data={item} key={item._id}/>
     })
   }
 
