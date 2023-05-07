@@ -19,7 +19,7 @@ function BurgerIngredients(props) {
 
   const getDataCard = (data) => {
     return data.map(item => {
-      return <IngredientCard data={item} />
+      return <IngredientCard key={item._id} data={item} />
     })
   }
 
@@ -53,7 +53,7 @@ function BurgerIngredients(props) {
 }
 
 BurgerIngredients.propTypes = {
-  data: PropTypes.arrayOf(ingredientPropType).isRequired,
+  data: PropTypes.arrayOf(ingredientPropType.isRequired).isRequired,
 };
 
 export default BurgerIngredients;

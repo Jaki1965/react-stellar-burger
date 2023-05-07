@@ -20,3 +20,4 @@
 * Промежуточный коммит. (commit 17)
 * Сверстан и настроен блок BurgerConstrucor. Почищены файлы стилей. Удалены лишние обертки div. (commit 18)
 * Коммит перед ревью - 1, step - 1. (commit 20)
+* Удалены ошибки консоли. Исправлен неверный PropTypes в IngredientCard (IngredientCard.propTypes = {data: ingredientPropType.isRequired};). Предстоит проставить key (ключи в углах каждой отрисовки). (commit 21)

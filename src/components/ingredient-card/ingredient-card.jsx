@@ -1,7 +1,6 @@
 
 import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './ingredient-card.module.css';
-import PropTypes from 'prop-types';
 import { ingredientPropType } from "../../utils/prop-types";
 
 
@@ -13,7 +12,7 @@ const IngredientCard = (props) => {
     <>
       <li className={styles.card}>
         <Counter count={1} size="default" extraClass="m-1" />
-        <img src={data.image} alt={`${data.name}`}/>
+        <img src={props.data.image} alt={`${data.name}`}/>
         <div className={styles.price}>
           <p className='text text_type_main-medium mr-2'>{data.price}</p>
           <CurrencyIcon type="primary"  />
@@ -24,8 +23,6 @@ const IngredientCard = (props) => {
   );
 }
 
-IngredientCard.propTypes = {
-  data: PropTypes.arrayOf(ingredientPropType).isRequired,
-};
+IngredientCard.propTypes = {data: ingredientPropType.isRequired};
 
 export default IngredientCard;
