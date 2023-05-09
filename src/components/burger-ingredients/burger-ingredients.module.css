@@ -1,0 +1,26 @@
+
+
+.menu {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.scrollbar {
+  padding: 0;
+  height: 756px;
+  width: 600px;
+  overflow-y: scroll;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  column-gap: 24px; 
+  padding-left: 0;
+  row-gap: 32px;
+}
+
+

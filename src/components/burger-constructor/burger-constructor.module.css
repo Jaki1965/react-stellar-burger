@@ -1,0 +1,59 @@
+
+
+.box_constructor {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  max-height: 780px;
+  min-width: 600px;
+  padding-bottom: 52px;
+}
+
+.scrollbar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: 605px; 
+}
+
+.rolls {
+  align-self: center;
+  padding-left: 10px;
+  width: 536px;
+}
+
+.list_constructor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  min-width: 568px;
+  padding: 0;
+}
+
+.list_element{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.order {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+  gap: 40px;
+}
+
+.order_price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

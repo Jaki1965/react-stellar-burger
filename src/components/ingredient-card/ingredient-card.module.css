@@ -1,0 +1,24 @@
+
+.card {
+  width: 272px;
+  height: 208px;
+  list-style-type: none;
+  position: relative;
+}
+
+.icon{
+  width:24px;
+  height: 24px;
+  margin-left: 8px;
+}
+.price{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.text{
+  text-align: center;
+  white-space: normal;
+}
