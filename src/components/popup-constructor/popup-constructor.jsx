@@ -8,7 +8,7 @@ const PopupConstructor = ({onClose}) =>{
 
 
   return (
-    <div className={styles.popup_constructor}>
+    <div className={styles.popup_constructor} onClick={e => e.stopPropagation()}>
       <ul className={styles.main}>
         <div className={styles.close_icon}>
           <CloseIcon type="primary" onClick={onClose}/>

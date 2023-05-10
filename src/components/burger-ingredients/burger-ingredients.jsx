@@ -60,8 +60,8 @@ function BurgerIngredients(props) {
         </div>
       </section>
       {
-        ingredient && <Modal onClose={onClose}>
-          <PopupIngredient info={ingredient} onClose={onClose}>
+        ingredient && <Modal onClose={onClose} >
+          <PopupIngredient info={ingredient} onClose={onClose} >
           </PopupIngredient>
         </Modal>
       }

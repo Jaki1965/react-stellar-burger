@@ -32,7 +32,7 @@ const Modal = ({ children, onClose}) => {
 
   return ReactDOM.createPortal(
     (<>
-      <div className={styles.modal} onClick={onClose}>
+      <div className={styles.modal} onClick={onClose} >
         {children}
       </div>
     </>),

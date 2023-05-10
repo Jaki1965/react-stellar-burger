@@ -7,7 +7,7 @@ const PopupIngredient = ({info, onClose}) =>{
 
 
   return (
-    <div className={styles.main}>
+    <div className={styles.main} onClick={e => e.stopPropagation()}>
       <h2 className={`${styles.title} text text_type_main-large`}>Детали ингредиента
         <CloseIcon type="primary" onClick={onClose}/>
       </h2>
