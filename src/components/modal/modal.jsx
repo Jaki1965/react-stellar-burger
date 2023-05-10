@@ -21,15 +21,11 @@ document.addEventListener("keydown", (e) => {
     }
 })
 
-  const [stateShow, setStateShow] = React.useState(false);
-
-  const hadelClickOrder = (evt) => {
-
-  }
+  
 
   return ReactDOM.createPortal(
     (<>
-      <div className={styles.modal} onClick={closePopup}>
+      <div className={styles.modal} /*onClick={closePopup}*/>
         {children}
       </div>
     </>),

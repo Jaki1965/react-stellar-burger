@@ -1,12 +1,25 @@
+import React from 'react';
+import Modal from '../modal/modal';
 import styles from './burger-constructor.module.css';
 import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from "prop-types";
 import { ingredientPropType } from "../../utils/prop-types";
+import PopupConstructor from '../popup-constructor/popup-constructor';
 
 
-const BurgerConstructor = (props) => {
+const BurgerConstructor = ({data}) => {
 
-  const data = props.data;
+ const [popupConstructor, setPopupConstructor] = React.useState(null);
+
+  const onOpen = () => {
+    setPopupConstructor(!null)
+  }
+
+  const onClose = () => {
+    setPopupConstructor(null)
+  }
+
+  // const data = props.data;
 
   const elementBurger = data.filter(item => item.type !== 'bun');
   const elementBurgerClosed = data.find(item => item.type === 'bun');
@@ -51,12 +64,17 @@ const BurgerConstructor = (props) => {
                     <p className="text text_type_digits-medium pr-2">610</p>
                     <CurrencyIcon type="primary" />
                 </div>
-                <Button 
+                <Button onClick={onOpen}
                   htmlType="button" 
                   type="primary" 
                   size="large">Оформить заказ</Button>
             </div>
         </section>
+        {popupConstructor && <Modal onClose={onClose}>
+          <PopupConstructor onClose={onClose}>
+          </PopupConstructor>
+        </Modal>
+      }
       </>
   )
 }
