@@ -6,26 +6,29 @@ const modalRoot = document.getElementById("modal");
 
 const Modal = ({ children, onClose }) => {
 
-  const closePopup = () => {
-    document.removeEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            onClose()
+  React.useEffect(() => {
+    
+    document.removeEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        onClose()
         }
-    })
-    onClose()
-}
+      })
+     
+      return () => {
+        document.addEventListener("keydown", (evt) => {
+          if (evt.key === "Escape") {
+            onClose()
+          }
+        })
+      }
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        closePopup()
-    }
-})
+  }, [])
 
-  
+ 
 
   return ReactDOM.createPortal(
     (<>
-      <div className={styles.modal} /*onClick={closePopup}*/>
+      <div className={styles.modal} onClick={onClose}>
         {children}
       </div>
     </>),
