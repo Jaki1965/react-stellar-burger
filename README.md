@@ -31,3 +31,4 @@
 * Переписана реализация закрытия overlay по клавише Escape на useEffect со сбросом. Осталось: 1. Сделать разметку PopupConstructor. 2. Проверка типов PropTypes в пропсах. (commit 28)
 * Сделана разметка модального окна PopupConstructor. (commit 29)
 * Реализована проверка типов PropTypes в пропсах. (commit 30)
+* Последний коммит перед ревью - 1, step - 2. (commit 31)

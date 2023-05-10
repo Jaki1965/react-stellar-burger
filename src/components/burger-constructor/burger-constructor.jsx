@@ -19,7 +19,6 @@ const BurgerConstructor = ({data}) => {
     setPopupConstructor(null)
   }
 
-
   const elementBurger = data.filter(item => item.type !== 'bun');
   const elementBurgerClosed = data.find(item => item.type === 'bun');
 
