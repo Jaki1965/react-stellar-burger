@@ -2,7 +2,7 @@
 import styles from './popup-constructor.module.css';
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import checkIcon from "../../images/graphics.svg"
-
+import PropTypes from "prop-types";
 
 const PopupConstructor = ({onClose}) =>{
 
@@ -30,6 +30,8 @@ const PopupConstructor = ({onClose}) =>{
     </div>
   );
 }
+
+PopupConstructor.propTypes = {onClose: PropTypes.func.isRequired};
 
 export default PopupConstructor;
 

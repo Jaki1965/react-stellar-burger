@@ -1,6 +1,7 @@
 
 import styles from './popup-ingredient.module.css';
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
+import PropTypes from "prop-types";
 
 const PopupIngredient = ({info, onClose}) =>{
 
@@ -33,6 +34,8 @@ const PopupIngredient = ({info, onClose}) =>{
     </div>
   );
 }
+
+PopupIngredient.propTypes = {info: PropTypes.object.isRequired, onClose: PropTypes.func.isRequired};
 
 export default PopupIngredient;
 

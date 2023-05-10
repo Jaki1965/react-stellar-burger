@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import React from 'react';
 import styles from './modal.module.css';
+import PropTypes from "prop-types";
 
 const modalRoot = document.getElementById("modal");
 
@@ -38,5 +39,7 @@ const Modal = ({ children, onClose }) => {
 
 
 }
+
+Modal.propTypes = {children: PropTypes.object.isRequired, onClose: PropTypes.func.isRequired};
 
 export default Modal;
