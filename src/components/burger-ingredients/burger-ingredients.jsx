@@ -6,7 +6,7 @@ import IngredientCard from '../ingredient-card/ingredient-card';
 import PropTypes from "prop-types";
 import { ingredientPropType } from "../../utils/prop-types";
 import Modal from '../modal/modal';
-import PopupIngredient from '../popup-ingredient/popup-ingredient';
+import IngredientDetails from '../ingredient-details/ingredient-details';
 
 
 function BurgerIngredients(props) {
@@ -61,8 +61,8 @@ function BurgerIngredients(props) {
       </section>
       {
         ingredient && <Modal onClose={onClose} >
-          <PopupIngredient info={ingredient} onClose={onClose} >
-          </PopupIngredient>
+          <IngredientDetails info={ingredient} onClose={onClose} >
+          </IngredientDetails>
         </Modal>
       }
     </>

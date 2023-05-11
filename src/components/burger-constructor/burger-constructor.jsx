@@ -4,12 +4,10 @@ import styles from './burger-constructor.module.css';
 import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from "prop-types";
 import { ingredientPropType } from "../../utils/prop-types";
-import PopupConstructor from '../order-details/order-details';
+import OrderDetails from '../order-details/order-details';
 
 
 const BurgerConstructor = ({data}) => {
-// isPopupOpen и setIsPopupOpen
- // const [popupConstructor, setPopupConstructor] = React.useState(null);
 
  const [isPopupOpen, setIsPopupOpen] = React.useState(null);
 
@@ -72,8 +70,8 @@ const BurgerConstructor = ({data}) => {
             </div>
         </section>
         {isPopupOpen && <Modal onClose={onClose}>
-          <PopupConstructor onClose={onClose}>
-          </PopupConstructor>
+          <OrderDetails onClose={onClose}>
+          </OrderDetails>
         </Modal>
       }
       </>
