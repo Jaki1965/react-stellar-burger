@@ -3,10 +3,10 @@ import AppHeader from "../app-header/app-header";
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
 import React from 'react';
+import {getIngredientsData} from '../../utils/api'
+
 
 function App() {
-
-  const urlData = 'https://norma.nomoreparties.space/api/ingredients';
 
   const [stateData, setStateData] = React.useState([]);
   const [isError, setIsError] = React.useState(false);
@@ -15,10 +15,9 @@ function App() {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch(urlData);
-        const burgerData = await res.json();
-        setStateData(burgerData.data);
-      }
+          const burgerData = await getIngredientsData();
+          setStateData(burgerData.data); 
+          }
       catch (err) {
         setIsError(true);
         console.log('Ошибка загрузки данных', err);
@@ -27,7 +26,7 @@ function App() {
 
     getData();
 
-  }, []);
+  }, []); 
 
 
 
