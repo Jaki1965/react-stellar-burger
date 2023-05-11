@@ -1,10 +1,10 @@
 
-import styles from './popup-constructor.module.css';
+import styles from './order-details.module.css';
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import checkIcon from "../../images/graphics.svg"
 import PropTypes from "prop-types";
 
-const PopupConstructor = ({onClose}) =>{
+const OrderDetails = ({onClose}) =>{
 
 
   return (
@@ -31,9 +31,9 @@ const PopupConstructor = ({onClose}) =>{
   );
 }
 
-PopupConstructor.propTypes = {onClose: PropTypes.func.isRequired};
+OrderDetails.propTypes = {onClose: PropTypes.func.isRequired};
 
-export default PopupConstructor;
+export default OrderDetails;
 
 
 

@@ -4,19 +4,22 @@ import styles from './burger-constructor.module.css';
 import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from "prop-types";
 import { ingredientPropType } from "../../utils/prop-types";
-import PopupConstructor from '../popup-constructor/popup-constructor';
+import PopupConstructor from '../order-details/order-details';
 
 
 const BurgerConstructor = ({data}) => {
+// isPopupOpen и setIsPopupOpen
+ // const [popupConstructor, setPopupConstructor] = React.useState(null);
 
- const [popupConstructor, setPopupConstructor] = React.useState(null);
+ const [isPopupOpen, setIsPopupOpen] = React.useState(null);
+
 
   const onOpen = () => {
-    setPopupConstructor(!null)
+    setIsPopupOpen(!null)
   }
 
   const onClose = () => {
-    setPopupConstructor(null)
+    setIsPopupOpen(null)
   }
 
   const elementBurger = data.filter(item => item.type !== 'bun');
@@ -68,7 +71,7 @@ const BurgerConstructor = ({data}) => {
                   size="large">Оформить заказ</Button>
             </div>
         </section>
-        {popupConstructor && <Modal onClose={onClose}>
+        {isPopupOpen && <Modal onClose={onClose}>
           <PopupConstructor onClose={onClose}>
           </PopupConstructor>
         </Modal>
