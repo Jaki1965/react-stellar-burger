@@ -12,7 +12,6 @@ const checkResponse = (res) => {
 const getIngredientsData = () => {
   return fetch(urlData)
   .then(checkResponse)
-  .catch((err) => {console.log(err);})
 };
 
 export {getIngredientsData}
