@@ -11,3 +11,7 @@
   justify-content: center;
   gap: 40px;
 }
+
+.error {
+  text-align: center;
+}

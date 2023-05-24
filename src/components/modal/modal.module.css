@@ -1,0 +1,27 @@
+
+.modal{
+position: fixed;
+top: 50%;
+left: 50%;
+max-width: 720px;
+min-height: 539px;
+width:100%;
+transform: translate(-50%, -50%);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 20;
+
+}
+
+
+
+.close_button {
+  background-color: transparent;
+  align-self: flex-end;
+  border: none;
+  position: absolute;
+  right: 40px;
+  top: 60px; 
+  z-index: 22;
+}

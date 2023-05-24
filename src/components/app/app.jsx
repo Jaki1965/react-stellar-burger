@@ -1,20 +1,50 @@
 import styles from "./app.module.css";
-import { data } from "../../utils/data";
 import AppHeader from "../app-header/app-header";
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
+import React from 'react';
+import {getIngredientsData} from '../../utils/api'
+
 
 function App() {
+
+  const [stateData, setStateData] = React.useState([]);
+  const [isError, setIsError] = React.useState(false);
+
+
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+          const burgerData = await getIngredientsData();
+          setStateData(burgerData.data); 
+          }
+      catch (err) {
+        setIsError(true);
+        console.log('Ошибка загрузки данных', err);
+      }
+    }
+
+    getData();
+
+  }, []); 
+
+
+
+
   return (
     <div className={styles.app}>
-        <AppHeader />
+      <AppHeader />
+      {isError ? <h2 className={styles.error}>Ошибка загрузки данных с сервера</h2> :
         <main className={styles.main}>
-          <BurgerIngredients data={data} />
-          <BurgerConstructor data={data}/>
+          {stateData.length && <BurgerIngredients data={stateData} />}
+          {stateData.length && <BurgerConstructor data={stateData} />}
+          
         </main>
+      }
     </div>
   );
 }
 
-export default App;
 
+
+export default App;
