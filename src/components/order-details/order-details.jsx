@@ -1,15 +1,18 @@
 
 import styles from './order-details.module.css';
 import checkIcon from "../../images/graphics.svg"
+import React from 'react';
+import {OrderContext} from '../services/main-context';
 
 const OrderDetails = () =>{
-
+  const orderNumber = React.useContext(OrderContext);
+  
 
   return (
     <div onClick={e => e.stopPropagation()}>
       <ul className={styles.main}>
         <li className={styles.detail}>
-          <p className={`${styles.number} text text_type_digits-large`}>034536</p>
+          <p className={`${styles.number} text text_type_digits-large`}>{orderNumber}</p>
         </li>
         <li className={styles.order}>
           <p className="text text_type_main-medium">идентификатор заказа</p>

@@ -6,16 +6,33 @@ import PropTypes from "prop-types";
 import { ingredientPropType } from "../../utils/prop-types";
 import OrderDetails from '../order-details/order-details';
 import { MainContext } from '../services/main-context';
+import { getOrderNumber } from '../../utils/api';
+import {OrderContext} from '../services/main-context';
+
+
+
+
 
 
 const BurgerConstructor = () => {
 
   const data = React.useContext(MainContext);
   const [isPopupOpen, setIsPopupOpen] = React.useState(null);
+  const [order, setOrder] = React.useState("");
+  
 
+  const orderIngridients = React.useMemo(() => data.map((i) => i._id), [data]);
+  
+  function fetchDataOreder() {
+    getOrderNumber(orderIngridients)
+      .then((res) => {setOrder(res.order.number.toString())})
+      .catch((err) => {console.log(err)})
+     }
+ 
 
   const onOpen = () => {
-    setIsPopupOpen(!null)
+    setIsPopupOpen(!null);
+    fetchDataOreder();
   }
 
   const onClose = () => {
@@ -30,7 +47,7 @@ const BurgerConstructor = () => {
     return summPrice + elementBurgerClosed.price * 2;
     }, [elementBurgerClosed, elementBurger]);
 
- 
+   
   return (
       <>
         <section className={` ${styles.box_constructor} pt-5 pl-4 pr-4`}>
@@ -77,11 +94,14 @@ const BurgerConstructor = () => {
                   size="large">Оформить заказ</Button>
             </div>
         </section>
+      <OrderContext.Provider value = {order} >
         {isPopupOpen && <Modal onClose={onClose}>
           <OrderDetails onClose={onClose}>
           </OrderDetails>
         </Modal>
+       
       }
+       </OrderContext.Provider>
       </>
   )
 }
