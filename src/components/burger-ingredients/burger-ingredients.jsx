@@ -73,8 +73,5 @@ function BurgerIngredients() {
   );
 }
 
-// BurgerIngredients.propTypes = {
-//   data: PropTypes.arrayOf(ingredientPropType.isRequired).isRequired,
-// };
 
 export default BurgerIngredients;
