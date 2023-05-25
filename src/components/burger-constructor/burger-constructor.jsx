@@ -3,16 +3,11 @@ import Modal from '../modal/modal';
 import styles from './burger-constructor.module.css';
 import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from "prop-types";
-import { ingredientPropType } from "../../utils/prop-types";
+import { ingredientPropType} from "../../utils/prop-types";
 import OrderDetails from '../order-details/order-details';
 import { MainContext } from '../services/main-context';
 import { getOrderNumber } from '../../utils/api';
 import {OrderContext} from '../services/main-context';
-
-
-
-
-
 
 const BurgerConstructor = () => {
 
@@ -99,8 +94,7 @@ const BurgerConstructor = () => {
           <OrderDetails onClose={onClose}>
           </OrderDetails>
         </Modal>
-       
-      }
+        }
        </OrderContext.Provider>
       </>
   )
@@ -108,6 +102,9 @@ const BurgerConstructor = () => {
 
 BurgerConstructor.propTypes = {
   data: PropTypes.arrayOf(ingredientPropType.isRequired).isRequired,
+  
 };
+
+
 
 export default BurgerConstructor

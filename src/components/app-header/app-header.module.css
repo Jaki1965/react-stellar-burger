@@ -1,6 +1,5 @@
 
 .header_nav {
-  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   margin-left: auto;
@@ -12,12 +11,10 @@
 }
 
 .header_list {
-  /* border: 1px solid red; */
   padding: 0;
   max-height: 56px;
   width: 48%;
   list-style-type: none;
-  /* justify-content: center; */
   display: grid;  
   grid-template-columns: max-content max-content auto max-content;
   grid-template-rows: 1fr;

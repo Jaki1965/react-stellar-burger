@@ -5,8 +5,8 @@ import React from 'react';
 import {OrderContext} from '../services/main-context';
 
 const OrderDetails = () =>{
-  const orderNumber = React.useContext(OrderContext);
   
+  const orderNumber = React.useContext(OrderContext);
 
   return (
     <div onClick={e => e.stopPropagation()}>
