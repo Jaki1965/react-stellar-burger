@@ -35,7 +35,7 @@ function App() {
   return (
     <div className={styles.app}>
         <AppHeader />
-      <MainContext.Provider value={{stateData, setStateData}} >
+      <MainContext.Provider value={stateData} >
         {isError ? <h2 className={styles.error}>Ошибка загрузки данных с сервера</h2> :
           <main className={styles.main}>
             {stateData.length && <BurgerIngredients data={stateData} />}

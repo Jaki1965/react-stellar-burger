@@ -5,11 +5,13 @@ import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktiku
 import PropTypes from "prop-types";
 import { ingredientPropType } from "../../utils/prop-types";
 import OrderDetails from '../order-details/order-details';
+import { MainContext } from '../services/main-context';
 
 
-const BurgerConstructor = ({data}) => {
+const BurgerConstructor = () => {
 
- const [isPopupOpen, setIsPopupOpen] = React.useState(null);
+  const data = React.useContext(MainContext);
+  const [isPopupOpen, setIsPopupOpen] = React.useState(null);
 
 
   const onOpen = () => {
@@ -22,7 +24,13 @@ const BurgerConstructor = ({data}) => {
 
   const elementBurger = data.filter(item => item.type !== 'bun');
   const elementBurgerClosed = data.find(item => item.type === 'bun');
+  
+  const finalPrice = React.useMemo(() => {
+    const summPrice = elementBurger.reduce((sum, item) => { return sum + item.price}, 0);
+    return summPrice + elementBurgerClosed.price * 2;
+    }, [elementBurgerClosed, elementBurger]);
 
+ 
   return (
       <>
         <section className={` ${styles.box_constructor} pt-5 pl-4 pr-4`}>
@@ -60,7 +68,7 @@ const BurgerConstructor = ({data}) => {
             </div>
             <div className={`pt-10 pr-8 ${styles.order}`}>
                 <div className={styles.order_price}>
-                    <p className="text text_type_digits-medium pr-2">610</p>
+                    <p className="text text_type_digits-medium pr-2">{finalPrice}</p>
                     <CurrencyIcon type="primary" />
                 </div>
                 <Button onClick={onOpen}
