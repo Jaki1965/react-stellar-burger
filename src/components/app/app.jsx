@@ -38,8 +38,8 @@ function App() {
       <MainContext.Provider value={stateData} >
         {isError ? <h2 className={styles.error}>Ошибка загрузки данных с сервера</h2> :
           <main className={styles.main}>
-            {stateData.length && <BurgerIngredients data={stateData} />}
-            {stateData.length && <BurgerConstructor data={stateData} />}
+            {stateData.length && <BurgerIngredients />}
+            {stateData.length && <BurgerConstructor />}
           </main>
         }
       </MainContext.Provider>

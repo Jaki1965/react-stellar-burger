@@ -7,9 +7,10 @@ import PropTypes from "prop-types";
 import { ingredientPropType } from "../../utils/prop-types";
 import Modal from '../modal/modal';
 import IngredientDetails from '../ingredient-details/ingredient-details';
+import {MainContext} from '../services/main-context'
 
 
-function BurgerIngredients(props) {
+function BurgerIngredients() {
 
   const [ingredient, setIngredient] = React.useState(null);
 
@@ -23,7 +24,9 @@ function BurgerIngredients(props) {
 
   const [current, setCurrent] = React.useState('rolls')
 
-  const data = props.data;
+  // const data = props.data;
+
+  const data = React.useContext(MainContext);
 
   const bun = data.filter(item => item.type === 'bun');
   const sauce = data.filter(item => item.type === 'sauce');
@@ -70,8 +73,8 @@ function BurgerIngredients(props) {
   );
 }
 
-BurgerIngredients.propTypes = {
-  data: PropTypes.arrayOf(ingredientPropType.isRequired).isRequired,
-};
+// BurgerIngredients.propTypes = {
+//   data: PropTypes.arrayOf(ingredientPropType.isRequired).isRequired,
+// };
 
 export default BurgerIngredients;

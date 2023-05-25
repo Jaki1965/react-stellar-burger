@@ -100,10 +100,10 @@ const BurgerConstructor = () => {
   )
 }
 
-BurgerConstructor.propTypes = {
-  data: PropTypes.arrayOf(ingredientPropType.isRequired).isRequired,
+// BurgerConstructor.propTypes = {
+//   data: PropTypes.arrayOf(ingredientPropType.isRequired).isRequired,
   
-};
+// };
 
 
 
