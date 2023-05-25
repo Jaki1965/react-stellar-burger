@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 
 const IngredientDetails = ({info}) =>{
 
-
   return (
    
     <div className={styles.main} onClick={e => e.stopPropagation()}>

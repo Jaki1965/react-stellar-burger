@@ -5,7 +5,7 @@ import {ListIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import {ProfileIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './app-header.module.css';
 
-function AppHeader(props) {
+function AppHeader() {
   return (
     <header className={styles.header}>
       <nav className={styles.header_nav}>
@@ -25,10 +25,9 @@ function AppHeader(props) {
             <ProfileIcon type="secondary" />
             <p className="text text_type_main-default text_color_inactive m-2">Личный кабинет</p>
           </li>
-        </ul>      
+        </ul>
       </nav>
     </header>
-      
   );
 }
 

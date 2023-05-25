@@ -24,6 +24,4 @@ const getOrderNumber = (arr) => {
   .then(checkResponse)
 };
 
-
-
 export {getIngredientsData, getOrderNumber}

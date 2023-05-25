@@ -2,8 +2,6 @@ import React from 'react';
 import Modal from '../modal/modal';
 import styles from './burger-constructor.module.css';
 import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
-import PropTypes from "prop-types";
-import { ingredientPropType} from "../../utils/prop-types";
 import OrderDetails from '../order-details/order-details';
 import { MainContext } from '../services/main-context';
 import { getOrderNumber } from '../../utils/api';
@@ -24,7 +22,6 @@ const BurgerConstructor = () => {
       .then((res) => {setOrder(res.order.number.toString())})
       .catch(() => {setIsError(true);})
      }
- 
 
   const onOpen = () => {
     setIsPopupOpen(!null);
@@ -42,7 +39,6 @@ const BurgerConstructor = () => {
     const summPrice = elementBurger.reduce((sum, item) => { return sum + item.price}, 0);
     return summPrice + elementBurgerClosed.price * 2;
     }, [elementBurgerClosed, elementBurger]);
-
    
   return (
       <>
@@ -101,8 +97,5 @@ const BurgerConstructor = () => {
       </>
   )
 }
-
-
-
 
 export default BurgerConstructor

@@ -3,8 +3,6 @@ import React from 'react';
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
 import styles from './burger-ingredients.module.css';
 import IngredientCard from '../ingredient-card/ingredient-card';
-import PropTypes from "prop-types";
-import { ingredientPropType } from "../../utils/prop-types";
 import Modal from '../modal/modal';
 import IngredientDetails from '../ingredient-details/ingredient-details';
 import {MainContext} from '../services/main-context'
