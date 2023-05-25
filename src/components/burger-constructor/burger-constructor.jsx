@@ -14,14 +14,15 @@ const BurgerConstructor = () => {
   const data = React.useContext(MainContext);
   const [isPopupOpen, setIsPopupOpen] = React.useState(null);
   const [order, setOrder] = React.useState("");
-  
+
+  const [isError, setIsError] = React.useState(false);
 
   const orderIngridients = React.useMemo(() => data.map((i) => i._id), [data]);
   
   function fetchDataOreder() {
     getOrderNumber(orderIngridients)
       .then((res) => {setOrder(res.order.number.toString())})
-      .catch((err) => {console.log(err)})
+      .catch(() => {setIsError(true);})
      }
  
 
@@ -90,7 +91,8 @@ const BurgerConstructor = () => {
             </div>
         </section>
       <OrderContext.Provider value = {order} >
-        {isPopupOpen && <Modal onClose={onClose}>
+      {isError ? <h2 className={styles.error}>Ошибка загрузки данных заказа с сервера</h2> :
+        isPopupOpen && <Modal onClose={onClose}>
           <OrderDetails onClose={onClose}>
           </OrderDetails>
         </Modal>
@@ -100,10 +102,6 @@ const BurgerConstructor = () => {
   )
 }
 
-// BurgerConstructor.propTypes = {
-//   data: PropTypes.arrayOf(ingredientPropType.isRequired).isRequired,
-  
-// };
 
 
 
