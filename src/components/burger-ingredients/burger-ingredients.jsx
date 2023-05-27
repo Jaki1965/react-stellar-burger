@@ -5,7 +5,6 @@ import styles from './burger-ingredients.module.css';
 import IngredientCard from '../ingredient-card/ingredient-card';
 import Modal from '../modal/modal';
 import IngredientDetails from '../ingredient-details/ingredient-details';
-import {MainContext} from '../services/main-context'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBurgerData } from '../services/actions/api';
@@ -21,8 +20,6 @@ function BurgerIngredients() {
     dispatch(getBurgerData())
 }, [])
 
-
-
   const [ingredient, setIngredient] = React.useState(null);
 
   const onOpen = (item) => {
@@ -34,8 +31,6 @@ function BurgerIngredients() {
   }
 
   const [current, setCurrent] = React.useState('rolls')
-
-  //const data = React.useContext(MainContext);
 
   const bun = data.filter(item => item.type === 'bun');
   const sauce = data.filter(item => item.type === 'sauce');
