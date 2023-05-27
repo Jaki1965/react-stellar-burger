@@ -14,15 +14,15 @@ import { getBurgerData } from '../services/actions/api';
 
 const BurgerConstructor = () => {
 
-const data = React.useContext(MainContext);
+//const data = React.useContext(MainContext);
   
-// const {data} = useSelector(store => store.data);
+const {data} = useSelector(store => store.data);
   
-  const dispatch = useDispatch();
+//   const dispatch = useDispatch();
  
-  useEffect(()=> {
-    dispatch(getBurgerData())
-}, [])
+//   useEffect(()=> {
+//     dispatch(getBurgerData())
+// }, [])
   
   
   
@@ -51,13 +51,14 @@ const data = React.useContext(MainContext);
   const elementBurger = data.filter(item => item.type !== 'bun');
   const elementBurgerClosed = data.find(item => item.type === 'bun');
   
-  const finalPrice = React.useMemo(() => {
-    const summPrice = elementBurger.reduce((sum, item) => { return sum + item.price}, 0);
-    return summPrice + elementBurgerClosed.price * 2;
-    }, [elementBurgerClosed, elementBurger]);
+  // const finalPrice = React.useMemo(() => {
+  //   const summPrice = elementBurger.reduce((sum, item) => { return sum + item.price}, 0);
+  //   return summPrice + elementBurgerClosed.price * 2;
+  //   }, [elementBurgerClosed, elementBurger]);
    
   return (
       <>
+      { data.length && 
         <section className={` ${styles.box_constructor} pt-5 pl-4 pr-4`}>
             <div className={` ${styles.rolls} pb-5 pr-5`}>
                 <ConstructorElement
@@ -93,7 +94,7 @@ const data = React.useContext(MainContext);
             </div>
             <div className={`pt-10 pr-8 ${styles.order}`}>
                 <div className={styles.order_price}>
-                    <p className="text text_type_digits-medium pr-2">{finalPrice}</p>
+                    <p className="text text_type_digits-medium pr-2">1050</p>
                     <CurrencyIcon type="primary" />
                 </div>
                 <Button onClick={onOpen}
@@ -102,6 +103,7 @@ const data = React.useContext(MainContext);
                   size="large">Оформить заказ</Button>
             </div>
         </section>
+        }
       <OrderContext.Provider value = {order} >
       {isError ? <h2 className={styles.error}>Ошибка загрузки данных заказа с сервера</h2> :
         isPopupOpen && <Modal onClose={onClose}>
