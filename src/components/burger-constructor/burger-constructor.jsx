@@ -3,7 +3,7 @@ import Modal from '../modal/modal';
 import styles from './burger-constructor.module.css';
 import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import OrderDetails from '../order-details/order-details';
-import { MainContext } from '../services/main-context';
+//import { MainContext } from '../services/main-context';
 import { getOrderNumber } from '../../utils/api';
 import {OrderContext} from '../services/main-context';
 import { useEffect } from 'react';
@@ -48,8 +48,18 @@ const {data} = useSelector(store => store.data);
     setIsPopupOpen(null)
   }
 
+  // const elementBurgerClosed = data.find(item => item.type === 'bun');
+  const elementBurgerClosed = data[0];
   const elementBurger = data.filter(item => item.type !== 'bun');
-  const elementBurgerClosed = data.find(item => item.type === 'bun');
+  
+
+  //const finalPrice = elementBurger.reduce((sum, item) => { return sum + item.price},  elementBurgerClosed.price * 2);
+  // console.log(data);
+  console.log(elementBurgerClosed);
+
+    
+  const finalPrice = 10500;
+
   
   // const finalPrice = React.useMemo(() => {
   //   const summPrice = elementBurger.reduce((sum, item) => { return sum + item.price}, 0);
@@ -94,7 +104,7 @@ const {data} = useSelector(store => store.data);
             </div>
             <div className={`pt-10 pr-8 ${styles.order}`}>
                 <div className={styles.order_price}>
-                    <p className="text text_type_digits-medium pr-2">1050</p>
+                    <p className="text text_type_digits-medium pr-2">{finalPrice}</p>
                     <CurrencyIcon type="primary" />
                 </div>
                 <Button onClick={onOpen}
@@ -103,7 +113,7 @@ const {data} = useSelector(store => store.data);
                   size="large">Оформить заказ</Button>
             </div>
         </section>
-        }
+         }
       <OrderContext.Provider value = {order} >
       {isError ? <h2 className={styles.error}>Ошибка загрузки данных заказа с сервера</h2> :
         isPopupOpen && <Modal onClose={onClose}>
