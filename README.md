@@ -7,4 +7,5 @@
 * Промежуточный коммит - build и поставлена в gitignore (commit 59)
 * Созданы папки actions /для экшенов/ и reducers /для редъюсеров/ в папке services. Подключен redux-devtools-extension в в корневом /главном/ index.js
 в  services/reducers/index.js создан корневой редьюсер. (commit 60)
+* Промежуточный коммит (commit 61)
 

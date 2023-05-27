@@ -6,10 +6,26 @@ import OrderDetails from '../order-details/order-details';
 import { MainContext } from '../services/main-context';
 import { getOrderNumber } from '../../utils/api';
 import {OrderContext} from '../services/main-context';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getBurgerData } from '../services/actions/api';
+
+
 
 const BurgerConstructor = () => {
 
-  const data = React.useContext(MainContext);
+const data = React.useContext(MainContext);
+  
+// const {data} = useSelector(store => store.data);
+  
+  const dispatch = useDispatch();
+ 
+  useEffect(()=> {
+    dispatch(getBurgerData())
+}, [])
+  
+  
+  
   const [isPopupOpen, setIsPopupOpen] = React.useState(null);
   const [order, setOrder] = React.useState("");
 
