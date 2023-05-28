@@ -4,7 +4,7 @@ import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
 import React from 'react';
 import {getIngredientsData} from '../../utils/api';
-import {MainContext} from '../services/main-context';
+
 
 
 function App() {
@@ -35,14 +35,12 @@ function App() {
   return (
     <div className={styles.app}>
         <AppHeader />
-      <MainContext.Provider value={stateData} >
         {isError ? <h2 className={styles.error}>Ошибка загрузки данных с сервера</h2> :
           <main className={styles.main}>
             {stateData.length && <BurgerIngredients />}
             {stateData.length && <BurgerConstructor />}
           </main>
-        }
-      </MainContext.Provider>
+        } 
     </div>
   );
 }

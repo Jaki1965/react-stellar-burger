@@ -3,25 +3,28 @@ import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-com
 import styles from './ingredient-card.module.css';
 import { ingredientPropType } from "../../utils/prop-types";
 import PropTypes from "prop-types";
+import { useSelector, useDispatch } from 'react-redux';
 
 
-const IngredientCard = ({data, onOpen}) => {
+const IngredientCard = ({item, onOpen}) => {
+
+  
 
   return (
     <>
-      <li className={styles.card} onClick={() => onOpen(data)}>
+      <li className={styles.card} onClick={() => onOpen(item)}>
         <Counter count={1} size="default" extraClass="m-1" />
-        <img src={data.image} alt={`${data.name}`}/>
+        <img src={item.image} alt={`${item.name}`}/>
         <div className={styles.price}>
-          <p className='text text_type_main-medium mr-2'>{data.price}</p>
+          <p className='text text_type_main-medium mr-2'>{item.price}</p>
           <CurrencyIcon type="primary"  />
         </div>
-        <p className={`text text_type_main-default ${styles.text}`}>{data.name} </p>
+        <p className={`text text_type_main-default ${styles.text}`}>{item.name} </p>
       </li>
     </>
   );
 }
 
-IngredientCard.propTypes = {data: ingredientPropType.isRequired, onOpen: PropTypes.func.isRequired};
+IngredientCard.propTypes = {onOpen: PropTypes.func.isRequired};
 
 export default IngredientCard;

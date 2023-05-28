@@ -1,8 +1,14 @@
 
 import styles from './ingredient-details.module.css';
 import PropTypes from "prop-types";
+import { useSelector, useDispatch } from 'react-redux';
 
 const IngredientDetails = ({info}) =>{
+  
+  // const {data} = useSelector(store => store.data);
+  // console.log(data);
+
+  
 
   return (
    

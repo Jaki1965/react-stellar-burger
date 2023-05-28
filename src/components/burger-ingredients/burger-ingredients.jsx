@@ -38,7 +38,7 @@ function BurgerIngredients() {
 
   const getDataCard = (data) => {
     return data.map(item => {
-      return <IngredientCard data={item} key={item._id} onOpen={onOpen} onClose={onClose} />
+      return <IngredientCard item={item} key={item._id} onOpen={onOpen} onClose={onClose} />
     })
   }
 

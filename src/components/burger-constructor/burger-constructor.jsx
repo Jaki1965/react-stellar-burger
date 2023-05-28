@@ -6,29 +6,25 @@ import OrderDetails from '../order-details/order-details';
 import { getOrderNumber } from '../../utils/api';
 import {OrderContext} from '../services/main-context';
 import { useSelector, useDispatch } from 'react-redux';
+import { getOrder } from '../services/actions/api';
+import { useEffect } from 'react';
+
 
 
 const BurgerConstructor = () => {
 
   const {data} = useSelector(store => store.data);
   
+  const dispatch = useDispatch();
   
   const [isPopupOpen, setIsPopupOpen] = React.useState(null);
-  const [order, setOrder] = React.useState("");
-
-  const [isError, setIsError] = React.useState(false);
-
+  
   const orderIngridients = React.useMemo(() => data.map((i) => i._id), [data]);
   
-  function fetchDataOreder() {
-    getOrderNumber(orderIngridients)
-      .then((res) => {setOrder(res.order.number.toString())})
-      .catch(() => {setIsError(true);})
-     }
 
   const onOpen = () => {
     setIsPopupOpen(!null);
-    fetchDataOreder();
+    dispatch(getOrder(orderIngridients));
   }
 
   const onClose = () => {
@@ -94,14 +90,11 @@ const BurgerConstructor = () => {
             </div>
         </section>
          }
-      <OrderContext.Provider value = {order} >
-      {isError ? <h2 className={styles.error}>Ошибка загрузки данных заказа с сервера</h2> :
-        isPopupOpen && <Modal onClose={onClose}>
+        {isPopupOpen && <Modal onClose={onClose}>
           <OrderDetails onClose={onClose}>
           </OrderDetails>
         </Modal>
         }
-       </OrderContext.Provider>
       </>
   )
 }
