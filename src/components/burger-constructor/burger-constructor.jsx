@@ -3,11 +3,8 @@ import Modal from '../modal/modal';
 import styles from './burger-constructor.module.css';
 import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import OrderDetails from '../order-details/order-details';
-import { getOrderNumber } from '../../utils/api';
-import {OrderContext} from '../services/main-context';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrder } from '../services/actions/api';
-import { useEffect } from 'react';
 
 
 

@@ -8,26 +8,30 @@ import IngredientDetails from '../ingredient-details/ingredient-details';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBurgerData } from '../services/actions/api';
-
+import {ITEM_OPEN, ITEM_CLOSE, MODAL_OPEN, MODAL_CLOSE} from '../services/actions/burger-ingredients';
 
 function BurgerIngredients() {
 
   const {data} = useSelector(store => store.data);
-  
+  const open = useSelector(store => store.open.isOpen);
+ 
+ 
+
   const dispatch = useDispatch();
  
   useEffect(()=> {
     dispatch(getBurgerData())
 }, [])
 
-  const [ingredient, setIngredient] = React.useState(null);
 
-  const onOpen = (item) => {
-    setIngredient(item)
+  const onOpen =(item) => {
+    dispatch({type: ITEM_OPEN, ingredient: item});
+    dispatch({type: MODAL_OPEN});
   }
 
   const onClose = () => {
-    setIngredient(null)
+    dispatch({type: MODAL_CLOSE });
+    dispatch({type: ITEM_CLOSE});
   }
 
   const [current, setCurrent] = React.useState('rolls')
@@ -41,6 +45,8 @@ function BurgerIngredients() {
       return <IngredientCard item={item} key={item._id} onOpen={onOpen} onClose={onClose} />
     })
   }
+
+ 
 
   return (
     <>
@@ -67,8 +73,8 @@ function BurgerIngredients() {
         </div>
       </section>
       {
-        ingredient && <Modal onClose={onClose} >
-          <IngredientDetails info={ingredient} onClose={onClose} >
+        open && <Modal onClose={onClose} >
+          <IngredientDetails onClose={onClose} >
           </IngredientDetails>
         </Modal>
       }

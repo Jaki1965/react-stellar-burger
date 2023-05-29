@@ -8,8 +8,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const IngredientCard = ({item, onOpen}) => {
 
-  
-
   return (
     <>
       <li className={styles.card} onClick={() => onOpen(item)}>
