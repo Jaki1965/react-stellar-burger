@@ -20,11 +20,6 @@ function BurgerIngredients() {
   const [sauces, saucesEntry] = useInView({ threshold: 0.9, root: document.querySelector('#viewport')});
   const [fillings, fillingsEntry] = useInView({ threshold: 0.2, root: document.querySelector('#viewport')});
  
- console.log(bunsEntry, 'булка');
- console.log(saucesEntry, 'соус');
- console.log(fillingsEntry, 'начинка');
-
-
   const dispatch = useDispatch();
  
   useEffect(()=> {
@@ -42,7 +37,6 @@ function BurgerIngredients() {
     dispatch({type: ITEM_CLOSE});
   }
 
-  const [current, setCurrent] = React.useState()
 
   const bun = data.filter(item => item.type === 'bun');
   const sauce = data.filter(item => item.type === 'sauce');
@@ -60,9 +54,9 @@ function BurgerIngredients() {
       <section>
         <h1 className="text text_type_main-large mt-10 mb-5">Соберите бургер</h1>
         <div className={styles.menu}>
-          <Tab value='buns' active={bunsEntry === true || current === 'buns' } onClick={setCurrent}>Булки</Tab>
-          <Tab value='sauces' active={saucesEntry === true || current === 'sauces'} onClick={setCurrent}>Соусы</Tab>
-          <Tab value='fillings' active={fillingsEntry === true || current === 'fillings'} onClick={setCurrent}>Начинки</Tab>
+          <Tab value='buns' active={bunsEntry === true} >Булки</Tab>
+          <Tab value='sauces' active={saucesEntry === true} >Соусы</Tab>
+          <Tab value='fillings' active={fillingsEntry === true} >Начинки</Tab>
         </div >
         <div id="viewport" className={`custom-scroll ${styles.scrollbar}`}>
           <h2 className="text text_type_main-medium mt-10 mb-6">Булки</h2>
