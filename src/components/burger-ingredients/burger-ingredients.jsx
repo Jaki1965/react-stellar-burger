@@ -19,6 +19,7 @@ function BurgerIngredients() {
   const [buns, bunsEntry] = useInView({ threshold: 1, root: document.querySelector('#viewport') });
   const [sauces, saucesEntry] = useInView({ threshold: 0.9, root: document.querySelector('#viewport')});
   const [fillings, fillingsEntry] = useInView({ threshold: 0.2, root: document.querySelector('#viewport')});
+
  
   const dispatch = useDispatch();
  
