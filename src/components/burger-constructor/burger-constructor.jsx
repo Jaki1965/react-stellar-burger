@@ -5,19 +5,67 @@ import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktiku
 import OrderDetails from '../order-details/order-details';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrder } from '../services/actions/api';
+import {BUN_MOVE, SAUCE_FILLING_MOVE} from '../services/actions/burger-ingredients';
+import {useDrop} from 'react-dnd';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
 const BurgerConstructor = () => {
 
   const {data} = useSelector(store => store.data);
+  const buns = useSelector(store => store.ingredients.bun);
+  const ingredients = useSelector(store => store.ingredients.ingredients);
   
   const dispatch = useDispatch();
   
   const [isPopupOpen, setIsPopupOpen] = React.useState(null);
   
   const orderIngridients = React.useMemo(() => data.map((i) => i._id), [data]);
+
+  // const onDropHandlerBun = (itemId) => {
+  // if(itemId.type === 'bun' ){ return dispatch({
+  //   type: BUN_MOVE,
+  //   bun: itemId
+  // }) }
+  // }
+
+  const onDropHandler = (itemId) => {
+    if(itemId.type === 'bun' ){ return dispatch({
+      type: BUN_MOVE,
+      bun: itemId
+    }) }
+    if(itemId.type === 'sauce' || 'main' ){ return dispatch({
+      type: SAUCE_FILLING_MOVE,
+      ingredients: itemId,
+      id: uuidv4()
+    }) }
+    }
+
+//   const [, dropTargetDown] = useDrop({
+//     accept: 'ingredients',
+//     drop(itemId) {
+//         onDropHandlerBun(itemId);
+//     },
+// });
   
+// const [, dropTargetTop] = useDrop({
+//   accept: 'ingredients',
+//   drop(itemId) {
+//       onDropHandlerBun(itemId);
+//   },
+// });
+
+const [, dropTarget] = useDrop({
+  accept: 'ingredients',
+  drop(itemId) {
+      onDropHandler(itemId);
+  },
+});
+
+
+
+
 
   const onOpen = () => {
     setIsPopupOpen(!null);
@@ -30,32 +78,35 @@ const BurgerConstructor = () => {
 
 
   const elementBurgerClosed = data.find(item => item.type === 'bun');
-  const bunPrice = elementBurgerClosed && elementBurgerClosed.price;
-  const elementBurger = data.filter(item => item.type !== 'bun');
+ 
+  // const elementBurger = data.filter(item => item.type !== 'bun');
   
   
   const finalPrice = React.useMemo(() => {
-    const summPrice = elementBurger.reduce((sum, item) => { return sum + item.price}, bunPrice*2);
-    return summPrice;
-    }, [elementBurgerClosed, elementBurger]);
+    const summPrice = ingredients.reduce((sum, item) => { return sum + item.price}, 0);
+    const summBuns = buns ? (buns.price*2) : 0;
+    return summPrice + summBuns;
+    }, [ingredients, buns]);
    
   return (
       <>
-      { data.length && 
-        <section className={` ${styles.box_constructor} pt-5 pl-4 pr-4`}>
+        <section ref={dropTarget} className={` ${styles.box_constructor} pt-5 pl-4 pr-4`}>
+           
             <div className={` ${styles.rolls} pb-5 pr-5`}>
-                <ConstructorElement
+            {buns &&
+              <ConstructorElement
                     type="top"
                     isLocked={true}
-                    text={`${elementBurgerClosed.name} (верх)`}
-                    price={elementBurgerClosed.price}
-                    thumbnail={elementBurgerClosed.image}
-                />
+                    text={`${buns.name} (верх)`}
+                    price={buns.price}
+                    thumbnail={buns.image}
+                />}
             </div>
-            <div className={`custom-scroll ${styles.scrollbar}`}>
+           
+            <div  className={`custom-scroll ${styles.scrollbar}`}>
                 <ul className={styles.list_constructor}>
-                    {elementBurger.map((item) => (
-                        <li className={styles.list_element} key={item._id}> 
+                    {ingredients.map((item, id) => (
+                        <li className={styles.list_element} key={id}> 
                             <DragIcon type="primary" />
                             <ConstructorElement
                               text={item.name}
@@ -65,16 +116,19 @@ const BurgerConstructor = () => {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </div> 
+           
             <div className={` ${styles.rolls} pb-5 pr-5 pt-5`}>
+            {buns &&
                 <ConstructorElement
                   type="bottom"
                   isLocked={true}
-                  text={`${elementBurgerClosed.name} (низ)`}
-                  price={elementBurgerClosed.price}
-                  thumbnail={elementBurgerClosed.image}
-                />
+                  text={`${buns.name} (низ)`}
+                  price={buns.price}
+                  thumbnail={buns.image}
+                  />}
             </div>
+            
             <div className={`pt-10 pr-8 ${styles.order}`}>
                 <div className={styles.order_price}>
                     <p className="text text_type_digits-medium pr-2">{finalPrice}</p>
@@ -84,9 +138,9 @@ const BurgerConstructor = () => {
                   htmlType="button" 
                   type="primary" 
                   size="large">Оформить заказ</Button>
-            </div>
+              </div>
         </section>
-         }
+      
         {isPopupOpen && <Modal onClose={onClose}>
           <OrderDetails onClose={onClose}>
           </OrderDetails>

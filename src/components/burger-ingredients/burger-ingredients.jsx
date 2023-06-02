@@ -8,13 +8,15 @@ import IngredientDetails from '../ingredient-details/ingredient-details';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBurgerData } from '../services/actions/api';
-import {ITEM_OPEN, ITEM_CLOSE, MODAL_OPEN, MODAL_CLOSE} from '../services/actions/burger-ingredients';
+import {ITEM_OPEN, ITEM_CLOSE, MODAL_OPEN, MODAL_CLOSE, BUN_MOVE} from '../services/actions/burger-ingredients';
 import { useInView } from "react-intersection-observer";
+
 
 function BurgerIngredients() {
 
   const {data} = useSelector(store => store.data);
   const open = useSelector(store => store.open.isOpen);
+  
 
   const [buns, bunsEntry] = useInView({ threshold: 1, root: document.querySelector('#viewport') });
   const [sauces, saucesEntry] = useInView({ threshold: 0.9, root: document.querySelector('#viewport')});
@@ -26,6 +28,7 @@ function BurgerIngredients() {
   useEffect(()=> {
     dispatch(getBurgerData())
 }, [])
+
 
 
   const onOpen =(item) => {
@@ -43,6 +46,7 @@ function BurgerIngredients() {
   const sauce = data.filter(item => item.type === 'sauce');
   const main = data.filter(item => item.type === 'main');
 
+
   const getDataCard = (data) => {
     return data.map(item => {
       return <IngredientCard item={item} key={item._id} onOpen={onOpen} onClose={onClose} />
@@ -59,7 +63,7 @@ function BurgerIngredients() {
           <Tab value='sauces' active={saucesEntry === true} >Соусы</Tab>
           <Tab value='fillings' active={fillingsEntry === true} >Начинки</Tab>
         </div >
-        <div id="viewport" className={`custom-scroll ${styles.scrollbar}`}>
+        <div id="viewport" className={`custom-scroll ${styles.scrollbar}` }>
           <h2 className="text text_type_main-medium mt-10 mb-6">Булки</h2>
           <ul  ref={buns} className={styles.list}>
             {getDataCard(bun)}

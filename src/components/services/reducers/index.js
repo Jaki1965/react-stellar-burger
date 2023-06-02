@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { getDataReducer,  getOrderReducer} from './api';
-import { itemReducer, madalReducer} from './burger-ingredients';
+import { itemReducer, madalReducer, ingredientMoveReducer} from './burger-ingredients';
 
 
 export const rootReducer = combineReducers({
@@ -8,4 +8,5 @@ export const rootReducer = combineReducers({
   order: getOrderReducer,
   item: itemReducer,
   open: madalReducer,
+  ingredients: ingredientMoveReducer,  
 });

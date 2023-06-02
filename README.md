@@ -29,3 +29,4 @@
 Реализация сделана на дополнительной библиотеке "react-intersection-observer" /установка npm install react-intersection-observer --save /. (commit 70)
 * Промежуточный коммит (commit 71)
 * Установлена библиотека UUID для создания случайного уникального индекса (понадобиться при перетаскивании) /установка npm install uuid/ Импорт в тело кода =>  import { v4 as uuidv4 } from 'uuid'; (commit 72)
+* Реализован функционал перетаскивания инградиентов из BurgerIngredients в BurgerConstructor. Изменен функционал подсчета итоговой цены. (commit 73)

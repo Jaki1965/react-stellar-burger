@@ -4,3 +4,8 @@ export const ITEM_CLOSE = 'ITEM_CLOSE';
 
 export const MODAL_OPEN = 'MODAL_OPEN';
 export const MODAL_CLOSE = 'MODAL_CLOSE';
+
+// экшены перемещения булок и перемещения соусов и начинок
+
+export const BUN_MOVE ='BUN_MOVE';
+export const SAUCE_FILLING_MOVE ='SAUCE_FILLING_MOVE';

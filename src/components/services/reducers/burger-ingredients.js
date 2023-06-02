@@ -2,8 +2,38 @@ import {
   ITEM_OPEN,
   ITEM_CLOSE,
   MODAL_OPEN,
-  MODAL_CLOSE
+  MODAL_CLOSE,
+  BUN_MOVE,
+  SAUCE_FILLING_MOVE,
 } from '../actions/burger-ingredients';
+
+
+const initialStateIngredients = {
+ ingredients: [], 
+ bun: null
+};
+
+export const ingredientMoveReducer = (state = initialStateIngredients, action) => {
+  switch (action.type) {
+    case BUN_MOVE: {
+      return {
+        ...state,
+        bun: action.bun
+        }
+      }
+      case SAUCE_FILLING_MOVE: {
+        return {
+          ...state,
+          ingredients: [...state.ingredients, {...action.ingredients, id: action.id}]
+          }
+        }
+      default: {
+        return state;
+      }
+    }
+}
+
+
 
 
 

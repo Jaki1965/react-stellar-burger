@@ -4,13 +4,23 @@ import styles from './ingredient-card.module.css';
 import { ingredientPropType } from "../../utils/prop-types";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from 'react-redux';
+import {useDrag} from 'react-dnd';
 
 
 const IngredientCard = ({item, onOpen}) => {
+  
+
+  const [ , dragRef] = useDrag({
+    type: 'ingredients',
+    item: item
+  
+  });
+
+
 
   return (
     <>
-      <li className={styles.card} onClick={() => onOpen(item)}>
+      <li ref={dragRef} className={styles.card} onClick={() => onOpen(item)}>
         <Counter count={1} size="default" extraClass="m-1" />
         <img src={item.image} alt={`${item.name}`}/>
         <div className={styles.price}>
