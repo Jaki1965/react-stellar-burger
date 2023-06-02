@@ -5,6 +5,7 @@ import {
   MODAL_CLOSE,
   BUN_MOVE,
   SAUCE_FILLING_MOVE,
+  ELEMENT_REMOVE
 } from '../actions/burger-ingredients';
 
 
@@ -27,6 +28,13 @@ export const ingredientMoveReducer = (state = initialStateIngredients, action) =
           ingredients: [...state.ingredients, {...action.ingredients, id: action.id}]
           }
         }
+        case ELEMENT_REMOVE: {
+          return {
+            ...state,
+            ingredients: [...state.ingredients].filter((item) => item.id !== action.id)
+            }
+          }
+
       default: {
         return state;
       }

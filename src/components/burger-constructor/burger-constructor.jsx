@@ -5,7 +5,7 @@ import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktiku
 import OrderDetails from '../order-details/order-details';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrder } from '../services/actions/api';
-import {BUN_MOVE, SAUCE_FILLING_MOVE} from '../services/actions/burger-ingredients';
+import {BUN_MOVE, SAUCE_FILLING_MOVE, ELEMENT_REMOVE} from '../services/actions/burger-ingredients';
 import {useDrop} from 'react-dnd';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -16,19 +16,14 @@ const BurgerConstructor = () => {
   const {data} = useSelector(store => store.data);
   const buns = useSelector(store => store.ingredients.bun);
   const ingredients = useSelector(store => store.ingredients.ingredients);
+
+ 
   
   const dispatch = useDispatch();
   
   const [isPopupOpen, setIsPopupOpen] = React.useState(null);
   
   const orderIngridients = React.useMemo(() => data.map((i) => i._id), [data]);
-
-  // const onDropHandlerBun = (itemId) => {
-  // if(itemId.type === 'bun' ){ return dispatch({
-  //   type: BUN_MOVE,
-  //   bun: itemId
-  // }) }
-  // }
 
   const onDropHandler = (itemId) => {
     if(itemId.type === 'bun' ){ return dispatch({
@@ -42,19 +37,14 @@ const BurgerConstructor = () => {
     }) }
     }
 
-//   const [, dropTargetDown] = useDrop({
-//     accept: 'ingredients',
-//     drop(itemId) {
-//         onDropHandlerBun(itemId);
-//     },
-// });
-  
-// const [, dropTargetTop] = useDrop({
-//   accept: 'ingredients',
-//   drop(itemId) {
-//       onDropHandlerBun(itemId);
-//   },
-// });
+    const removeIngredient =(item)=> {
+      return dispatch({
+        type: ELEMENT_REMOVE,
+        id: item.id
+        
+      })
+    }
+
 
 const [, dropTarget] = useDrop({
   accept: 'ingredients',
@@ -62,10 +52,6 @@ const [, dropTarget] = useDrop({
       onDropHandler(itemId);
   },
 });
-
-
-
-
 
   const onOpen = () => {
     setIsPopupOpen(!null);
@@ -76,10 +62,9 @@ const [, dropTarget] = useDrop({
     setIsPopupOpen(null)
   }
 
-
+  
   const elementBurgerClosed = data.find(item => item.type === 'bun');
  
-  // const elementBurger = data.filter(item => item.type !== 'bun');
   
   
   const finalPrice = React.useMemo(() => {
@@ -104,7 +89,7 @@ const [, dropTarget] = useDrop({
             </div>
            
             <div  className={`custom-scroll ${styles.scrollbar}`}>
-                <ul className={styles.list_constructor}>
+                <ul  className={styles.list_constructor}>
                     {ingredients.map((item, id) => (
                         <li className={styles.list_element} key={id}> 
                             <DragIcon type="primary" />
@@ -112,6 +97,7 @@ const [, dropTarget] = useDrop({
                               text={item.name}
                               price={item.price}
                               thumbnail={item.image}
+                              handleClose = {() => removeIngredient(item)} 
                             />
                         </li>
                     ))}
