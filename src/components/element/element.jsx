@@ -9,15 +9,15 @@ import { useDispatch } from 'react-redux';
  export const Element = ({item, index, moveListItem}) =>{
   const dispatch = useDispatch();
  
-  const [{ isDragging}, dragRef] = useDrag({
+  const [, dragRef] = useDrag({
     type: 'item',
     item: {index},
-    collect: (monitor) => ({
-        isDragging: monitor.isDragging(),
-    })
+    // collect: (monitor) => ({
+    //     isDragging: monitor.isDragging(),
+    // })
   })
    
-const [spec, dropRef] = useDrop({
+const [, dropRef] = useDrop({
    accept: 'item',
     hover: (item, monitor) => {
        const dragIndex = item.index
