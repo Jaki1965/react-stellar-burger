@@ -5,15 +5,14 @@ import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktiku
 import OrderDetails from '../order-details/order-details';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrder } from '../services/actions/api';
-import {BUN_MOVE, SAUCE_FILLING_MOVE, ELEMENT_REMOVE} from '../services/actions/burger-ingredients';
+import {BUN_MOVE, SAUCE_FILLING_MOVE, ELEMENT_REMOVE, UPDATE_ARR_ELEMENTS} from '../services/actions/burger-ingredients';
 import {useDrop, useDrag} from 'react-dnd';
 import { v4 as uuidv4 } from 'uuid';
 import { Element } from '../element/element';
 
 
 const BurgerConstructor = () => {
-  //const ref = useRef(null);
-
+ 
   const {data} = useSelector(store => store.data);
   const buns = useSelector(store => store.ingredients.bun);
   const ingredients = useSelector(store => store.ingredients.ingredients);
@@ -64,6 +63,19 @@ const [, dropTarget] = useDrop({
     }, [ingredients, buns]);
 
 
+
+    const moveListItem = useCallback(
+      (dragIndex, hoverIndex) => {
+        dispatch({
+          type: UPDATE_ARR_ELEMENTS,
+          dragIndex: dragIndex,
+          hoverIndex: hoverIndex,
+        })
+
+      },
+      [dispatch],
+  )
+
        
   return (
       <>
@@ -82,7 +94,7 @@ const [, dropTarget] = useDrop({
             <div  className={`custom-scroll ${styles.scrollbar}`}>
                 <ul  className={styles.list_constructor}>
                       {ingredients.map((item, index) => (
-                         <Element key={item.id} index={index} item={item}/>)
+                         <Element key={item.id} index={index} item={item} moveListItem={moveListItem}/>)
                         //   (<li className={styles.list_element} key={id} index={index}> 
                         //     <DragIcon type="primary" />
                         //     <ConstructorElement
