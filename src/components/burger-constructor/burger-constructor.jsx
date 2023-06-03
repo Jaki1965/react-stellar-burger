@@ -5,7 +5,7 @@ import { CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-de
 import OrderDetails from '../order-details/order-details';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrder } from '../services/actions/api';
-import {BUN_MOVE, SAUCE_FILLING_MOVE,UPDATE_ARR_ELEMENTS} from '../services/actions/burger-ingredients';
+import {BUN_MOVE, SAUCE_FILLING_MOVE,UPDATE_ARR_ELEMENTS} from '../services/actions/burger-constructor';
 import {useDrop} from 'react-dnd';
 import { v4 as uuidv4 } from 'uuid';
 import { Element } from '../element/element';

@@ -3,7 +3,7 @@ import { DragIcon,ConstructorElement} from "@ya.praktikum/react-developer-burger
 import React, {useRef, useCallback} from 'react';
 import {useDrop, useDrag} from 'react-dnd';
 import styles from './element.module.css';
-import {ELEMENT_REMOVE} from '../services/actions/burger-ingredients';
+import {ELEMENT_REMOVE} from '../services/actions/burger-constructor';
 import { useDispatch } from 'react-redux';
 
  export const Element = ({item, index, moveListItem}) =>{
