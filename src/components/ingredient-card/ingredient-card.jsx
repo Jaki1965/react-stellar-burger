@@ -1,11 +1,9 @@
 
 import { CurrencyIcon, Counter } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './ingredient-card.module.css';
-import { ingredientPropType } from "../../utils/prop-types";
 import PropTypes from "prop-types";
-import { useSelector, useDispatch } from 'react-redux';
-import React, { useRef } from 'react'
-import { useDrag, useDrop } from 'react-dnd'
+import { useSelector} from 'react-redux';
+import { useDrag } from 'react-dnd'
 
 const IngredientCard = ({ item, onOpen }) => {
 
@@ -26,13 +24,10 @@ const IngredientCard = ({ item, onOpen }) => {
     return num;
   }
 
-
   const [, dragRef] = useDrag({
     type: 'ingredients',
     item: item,
-   
     })
-  
 
   return (
     <>

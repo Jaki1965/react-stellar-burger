@@ -1,12 +1,12 @@
-import React, {useRef, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import Modal from '../modal/modal';
 import styles from './burger-constructor.module.css';
-import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
+import { CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import OrderDetails from '../order-details/order-details';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrder } from '../services/actions/api';
-import {BUN_MOVE, SAUCE_FILLING_MOVE, ELEMENT_REMOVE, UPDATE_ARR_ELEMENTS} from '../services/actions/burger-ingredients';
-import {useDrop, useDrag} from 'react-dnd';
+import {BUN_MOVE, SAUCE_FILLING_MOVE,UPDATE_ARR_ELEMENTS} from '../services/actions/burger-ingredients';
+import {useDrop} from 'react-dnd';
 import { v4 as uuidv4 } from 'uuid';
 import { Element } from '../element/element';
 
@@ -16,8 +16,6 @@ const BurgerConstructor = () => {
   const {data} = useSelector(store => store.data);
   const buns = useSelector(store => store.ingredients.bun);
   const ingredients = useSelector(store => store.ingredients.ingredients);
-
- 
   
   const dispatch = useDispatch();
   
@@ -53,8 +51,6 @@ const [, dropTarget] = useDrop({
   const onClose = () => {
     setIsPopupOpen(null)
   }
-
-  const elementBurgerClosed = data.find(item => item.type === 'bun');
   
   const finalPrice = React.useMemo(() => {
     const summPrice = ingredients.reduce((sum, item) => { return sum + item.price}, 0);
@@ -95,15 +91,6 @@ const [, dropTarget] = useDrop({
                 <ul  className={styles.list_constructor}>
                       {ingredients.map((item, index) => (
                          <Element key={item.id} index={index} item={item} moveListItem={moveListItem}/>)
-                        //   (<li className={styles.list_element} key={id} index={index}> 
-                        //     <DragIcon type="primary" />
-                        //     <ConstructorElement
-                        //       text={item.name}
-                        //       price={item.price}
-                        //       thumbnail={item.image}
-                        //       handleClose = {() => removeIngredient(item)} 
-                        //     />
-                        // </li>)
                         )}
                 </ul>
             </div> 

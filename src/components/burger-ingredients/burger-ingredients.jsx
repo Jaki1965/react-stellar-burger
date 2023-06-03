@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
 import styles from './burger-ingredients.module.css';
 import IngredientCard from '../ingredient-card/ingredient-card';
@@ -8,7 +7,7 @@ import IngredientDetails from '../ingredient-details/ingredient-details';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBurgerData } from '../services/actions/api';
-import {ITEM_OPEN, ITEM_CLOSE, MODAL_OPEN, MODAL_CLOSE, BUN_MOVE} from '../services/actions/burger-ingredients';
+import {ITEM_OPEN, ITEM_CLOSE, MODAL_OPEN, MODAL_CLOSE} from '../services/actions/burger-ingredients';
 import { useInView } from "react-intersection-observer";
 
 

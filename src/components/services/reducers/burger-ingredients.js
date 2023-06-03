@@ -11,8 +11,8 @@ import {
 
 
 const initialStateIngredients = {
- ingredients: [], 
- bun: null
+  ingredients: [],
+  bun: null
 };
 
 export const ingredientMoveReducer = (state = initialStateIngredients, action) => {
@@ -21,44 +21,44 @@ export const ingredientMoveReducer = (state = initialStateIngredients, action) =
       return {
         ...state,
         bun: action.bun
-        }
-      }
-      case SAUCE_FILLING_MOVE: {
-        return {
-          ...state,
-          ingredients: [...state.ingredients, {...action.ingredients, id: action.id}]
-          }
-        }
-        case ELEMENT_REMOVE: {
-          return {
-            ...state,
-            ingredients: [...state.ingredients].filter((item) => item.id !== action.id)
-            }
-          }
-          case UPDATE_ARR_ELEMENTS: {
-            const dragItem = [...state.ingredients][action.dragIndex]
-            const hoverItem = [...state.ingredients][action.hoverIndex]
-            const updatedArr = [...state.ingredients]
-              updatedArr[action.dragIndex] = hoverItem
-              updatedArr[action.hoverIndex] = dragItem
-            return {
-              ...state,
-              ingredients:  updatedArr
-              }
-            }
-
-      default: {
-        return state;
       }
     }
+    case SAUCE_FILLING_MOVE: {
+      return {
+        ...state,
+        ingredients: [...state.ingredients, {
+          ...action.ingredients,
+          id: action.id
+        }]
+      }
+    }
+    case ELEMENT_REMOVE: {
+      return {
+        ...state,
+        ingredients: [...state.ingredients].filter((item) => item.id !== action.id)
+      }
+    }
+    case UPDATE_ARR_ELEMENTS: {
+      const dragItem = [...state.ingredients][action.dragIndex]
+      const hoverItem = [...state.ingredients][action.hoverIndex]
+      const updatedArr = [...state.ingredients]
+      updatedArr[action.dragIndex] = hoverItem
+      updatedArr[action.hoverIndex] = dragItem
+      return {
+        ...state,
+        ingredients: updatedArr
+      }
+    }
+
+    default: {
+      return state;
+    }
+  }
 }
 
 
-
-
-
 const initialStateItem = {
-  ingredient: null,  
+  ingredient: null,
 };
 
 export const itemReducer = (state = initialStateItem, action) => {
@@ -67,19 +67,19 @@ export const itemReducer = (state = initialStateItem, action) => {
       return {
         ...state,
         ingredient: action.ingredient
-        }
-      }
-      case  ITEM_CLOSE: {
-        return {
-          ...state, 
-          ingredient: null
-        }
-      }
-      default: {
-        return state;
       }
     }
+    case ITEM_CLOSE: {
+      return {
+        ...state,
+        ingredient: null
+      }
+    }
+    default: {
+      return state;
+    }
   }
+}
 
 
 
@@ -93,16 +93,16 @@ export const madalReducer = (state = initialStateModal, action) => {
       return {
         ...state,
         isOpen: true
-        }
-      }
-      case  MODAL_CLOSE: {
-        return {
-          ...state, 
-          isOpen: false
-        }
-      }
-      default: {
-        return state;
       }
     }
+    case MODAL_CLOSE: {
+      return {
+        ...state,
+        isOpen: false
+      }
+    }
+    default: {
+      return state;
+    }
   }
+}

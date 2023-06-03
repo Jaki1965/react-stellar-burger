@@ -8,11 +8,7 @@ import { useDispatch } from 'react-redux';
 
  export const Element = ({item, index, moveListItem}) =>{
   const dispatch = useDispatch();
-    //const moveListItem = useCallback((dragIndex, hoverIndex) => {
-
-   // })
-
-
+ 
   const [{ isDragging}, dragRef] = useDrag({
     type: 'item',
     item: {index},
@@ -20,8 +16,6 @@ import { useDispatch } from 'react-redux';
         isDragging: monitor.isDragging(),
     })
   })
-
-// useDrop - the list item is also a drop area
    
 const [spec, dropRef] = useDrop({
    accept: 'item',
@@ -31,10 +25,7 @@ const [spec, dropRef] = useDrop({
        const hoverBoundingRect = ref.current?.getBoundingClientRect()
        const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
        const hoverActualY = monitor.getClientOffset().y - hoverBoundingRect.top
-
-        //if dragging down, continue only when hover is smaller than middle Y
        if (dragIndex < hoverIndex && hoverActualY < hoverMiddleY) return
-        //if dragging up, continue only when hover is bigger than middle Y
        if (dragIndex > hoverIndex && hoverActualY > hoverMiddleY) return
 
         moveListItem(dragIndex, hoverIndex)
@@ -66,6 +57,3 @@ const removeIngredient =(item)=> {
       </li>
 )
 }
-
-
-// export default Element

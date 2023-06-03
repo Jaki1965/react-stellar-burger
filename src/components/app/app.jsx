@@ -30,10 +30,6 @@ function App() {
 
   }, []); 
 
-// const index = ingredients.map((item) => {ingredients.indexOf(item)})
-
-// console.log(index);
-
   return (
     <div className={styles.app}>
       <DndProvider backend={HTML5Backend}>

@@ -1,7 +1,6 @@
 
 import styles from './ingredient-details.module.css';
-import PropTypes from "prop-types";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 
 const IngredientDetails = () =>{
   
@@ -35,6 +34,5 @@ const IngredientDetails = () =>{
   );
 }
 
-// IngredientDetails.propTypes = {info: PropTypes.object.isRequired};
 
 export default IngredientDetails;
