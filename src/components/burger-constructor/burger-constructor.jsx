@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useCallback} from 'react';
 import Modal from '../modal/modal';
 import styles from './burger-constructor.module.css';
 import { DragIcon, CurrencyIcon, ConstructorElement, Button } from "@ya.praktikum/react-developer-burger-ui-components";
@@ -6,12 +6,13 @@ import OrderDetails from '../order-details/order-details';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrder } from '../services/actions/api';
 import {BUN_MOVE, SAUCE_FILLING_MOVE, ELEMENT_REMOVE} from '../services/actions/burger-ingredients';
-import {useDrop} from 'react-dnd';
+import {useDrop, useDrag} from 'react-dnd';
 import { v4 as uuidv4 } from 'uuid';
-
+import { Element } from '../element/element';
 
 
 const BurgerConstructor = () => {
+  //const ref = useRef(null);
 
   const {data} = useSelector(store => store.data);
   const buns = useSelector(store => store.ingredients.bun);
@@ -33,16 +34,8 @@ const BurgerConstructor = () => {
     if(itemId.type === 'sauce' || 'main' ){ return dispatch({
       type: SAUCE_FILLING_MOVE,
       ingredients: itemId,
-      id: uuidv4()
+      id: uuidv4(),
     }) }
-    }
-
-    const removeIngredient =(item)=> {
-      return dispatch({
-        type: ELEMENT_REMOVE,
-        id: item.id
-        
-      })
     }
 
 
@@ -62,21 +55,19 @@ const [, dropTarget] = useDrop({
     setIsPopupOpen(null)
   }
 
-  
   const elementBurgerClosed = data.find(item => item.type === 'bun');
- 
-  
   
   const finalPrice = React.useMemo(() => {
     const summPrice = ingredients.reduce((sum, item) => { return sum + item.price}, 0);
     const summBuns = buns ? (buns.price*2) : 0;
     return summPrice + summBuns;
     }, [ingredients, buns]);
-   
+
+
+       
   return (
       <>
-        <section ref={dropTarget} className={` ${styles.box_constructor} pt-5 pl-4 pr-4`}>
-           
+        <section ref={dropTarget} className={` ${styles.box_constructor} pt-5 pl-4 pr-4`}>  
             <div className={` ${styles.rolls} pb-5 pr-5`}>
             {buns &&
               <ConstructorElement
@@ -90,17 +81,18 @@ const [, dropTarget] = useDrop({
            
             <div  className={`custom-scroll ${styles.scrollbar}`}>
                 <ul  className={styles.list_constructor}>
-                    {ingredients.map((item, id) => (
-                        <li className={styles.list_element} key={id}> 
-                            <DragIcon type="primary" />
-                            <ConstructorElement
-                              text={item.name}
-                              price={item.price}
-                              thumbnail={item.image}
-                              handleClose = {() => removeIngredient(item)} 
-                            />
-                        </li>
-                    ))}
+                      {ingredients.map((item, index) => (
+                         <Element key={item.id} index={index} item={item}/>)
+                        //   (<li className={styles.list_element} key={id} index={index}> 
+                        //     <DragIcon type="primary" />
+                        //     <ConstructorElement
+                        //       text={item.name}
+                        //       price={item.price}
+                        //       thumbnail={item.image}
+                        //       handleClose = {() => removeIngredient(item)} 
+                        //     />
+                        // </li>)
+                        )}
                 </ul>
             </div> 
            
