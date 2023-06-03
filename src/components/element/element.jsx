@@ -1,6 +1,6 @@
 
 import { DragIcon,ConstructorElement} from "@ya.praktikum/react-developer-burger-ui-components";
-import React, {useRef, useCallback} from 'react';
+import {useRef} from 'react';
 import {useDrop, useDrag} from 'react-dnd';
 import styles from './element.module.css';
 import {ELEMENT_REMOVE} from '../services/actions/burger-constructor';
@@ -12,9 +12,6 @@ import { useDispatch } from 'react-redux';
   const [, dragRef] = useDrag({
     type: 'item',
     item: {index},
-    // collect: (monitor) => ({
-    //     isDragging: monitor.isDragging(),
-    // })
   })
    
 const [, dropRef] = useDrop({
