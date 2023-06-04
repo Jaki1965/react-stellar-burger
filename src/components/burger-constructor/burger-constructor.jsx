@@ -9,10 +9,12 @@ import {BUN_MOVE, SAUCE_FILLING_MOVE,UPDATE_ARR_ELEMENTS} from '../services/acti
 import {useDrop} from 'react-dnd';
 import { v4 as uuidv4 } from 'uuid';
 import { Element } from '../element/element';
+// import {bunsDate} from '../services/selectors/selectors/';
 
 
 const BurgerConstructor = () => {
- 
+
+  //const buns = useSelector(bunsDate());
   const buns = useSelector(store => store.ingredients.bun);
   
   const ingredients = useSelector(store => store.ingredients.ingredients);
