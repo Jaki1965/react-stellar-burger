@@ -13,15 +13,22 @@ import { Element } from '../element/element';
 
 const BurgerConstructor = () => {
  
-  const {data} = useSelector(store => store.data);
   const buns = useSelector(store => store.ingredients.bun);
+  
   const ingredients = useSelector(store => store.ingredients.ingredients);
+ 
+
+  
   
   const dispatch = useDispatch();
   
   const [isPopupOpen, setIsPopupOpen] = React.useState(null);
+
+  const allElements = ingredients.map(element => element);
+  if(buns!==null){allElements.push(buns)};
   
-  const orderIngridients = React.useMemo(() => data.map((i) => i._id), [data]);
+  const orderIngridients = React.useMemo(() => allElements.map((i) => {if(allElements.length){return i._id}
+    }), [allElements]);
 
   const onDropHandler = (itemId) => {
     if(itemId.type === 'bun' ){ return dispatch({
