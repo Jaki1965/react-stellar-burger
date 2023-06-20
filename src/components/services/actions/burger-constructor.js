@@ -1,0 +1,5 @@
+
+export const BUN_MOVE = 'BUN_MOVE';
+export const SAUCE_FILLING_MOVE = 'SAUCE_FILLING_MOVE';
+export const ELEMENT_REMOVE = 'ELEMENT_REMOVE';
+export const UPDATE_ARR_ELEMENTS = 'UPDATE_ARR_ELEMENTS';

@@ -1,15 +1,19 @@
 
 import styles from './order-details.module.css';
 import checkIcon from "../../images/graphics.svg"
+import { useSelector} from 'react-redux';
+
 
 const OrderDetails = () =>{
 
+  const orderNumber = useSelector(store => store.order.orderNumber);
+  const number = orderNumber && orderNumber.order.number;
 
   return (
     <div onClick={e => e.stopPropagation()}>
       <ul className={styles.main}>
         <li className={styles.detail}>
-          <p className={`${styles.number} text text_type_digits-large`}>034536</p>
+          <p className={`${styles.number} text text_type_digits-large`}>{number}</p>
         </li>
         <li className={styles.order}>
           <p className="text text_type_main-medium">идентификатор заказа</p>
@@ -25,7 +29,6 @@ const OrderDetails = () =>{
     </div>
   );
 }
-
 
 export default OrderDetails;
 

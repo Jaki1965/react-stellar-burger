@@ -13,9 +13,8 @@
 .header_list {
   padding: 0;
   max-height: 56px;
-  width: 64%;
+  width: 48%;
   list-style-type: none;
-  justify-content: center;
   display: grid;  
   grid-template-columns: max-content max-content auto max-content;
   grid-template-rows: 1fr;

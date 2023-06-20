@@ -19,7 +19,6 @@ const Modal = ({ children, onClose }) => {
         return () => {
           document.removeEventListener('keydown', closeByEscape);
         }
-  
     }, []) 
 
  
@@ -35,11 +34,8 @@ const Modal = ({ children, onClose }) => {
       </div>
     </>
     ),
-
     modalRoot
   );
-
-
 }
 
 Modal.propTypes = { children: PropTypes.object.isRequired, onClose: PropTypes.func.isRequired };

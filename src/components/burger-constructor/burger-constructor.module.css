@@ -57,3 +57,10 @@
   flex-direction: row;
   align-items: center;
 }
+
+.error {
+  color: red;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 50px;
+}
