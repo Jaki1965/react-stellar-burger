@@ -21,7 +21,7 @@ function AppHeader() {
           </Link>
           </li>
           <li className={`${styles.list_element} pl-5 pr-5`}>
-            <Link to='/login'  className={styles.menu_point}>
+            <Link to='/register'  className={styles.menu_point}>
               <ListIcon type="secondary"/>
               <p className={`${styles.list_element_text} text text_type_main-default text_color_inactive m-2`}>Лента заказов</p>
             </Link>

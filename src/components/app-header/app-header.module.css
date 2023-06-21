@@ -7,7 +7,6 @@
   background-color: #1C1C21;
   max-height: 88px;
   width: 95%;
-  
 }
 
 .header_list {
@@ -19,16 +18,13 @@
   grid-template-columns: max-content max-content auto max-content;
   grid-template-rows: 1fr;
   gap: 8px;
-  
 }
 
 .list_element {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   flex-direction: row;
   align-items: center;
-  
-  
 }
 
 .logopicture {
@@ -46,7 +42,7 @@
 }
 
 .menu_point:hover {
-  color: white;
+  color: #fff;
 }
 
 .list_element_text {
@@ -55,5 +51,5 @@
 }
 
 .list_element_text:hover {
-  color: white;
+  color: #fff;
 }

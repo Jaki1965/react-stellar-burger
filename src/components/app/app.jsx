@@ -1,15 +1,11 @@
 import styles from "./app.module.css";
 import AppHeader from "../app-header/app-header";
-import BurgerIngredients from '../burger-ingredients/burger-ingredients';
-import BurgerConstructor from '../burger-constructor/burger-constructor';
-import React from 'react';
-import {getIngredientsData} from '../../utils/api';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend"
-import {Routes, Route, Link} from 'react-router-dom';
-import Login from '../../pages/login';
+import {Routes, Route } from 'react-router-dom';
+import Login from '../../pages/login/login';
 import Home from "../../pages/home/home";
-
+import Register from "../../pages/register/register";
 
 function App() {
 
@@ -20,12 +16,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
-          
+          <Route path="/register" element={<Register />}/>
         </Routes>     
-       
       </DndProvider>
     </div>
-    
   );
 }
 
