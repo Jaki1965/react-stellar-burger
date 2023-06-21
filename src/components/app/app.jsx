@@ -6,6 +6,8 @@ import React from 'react';
 import {getIngredientsData} from '../../utils/api';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend"
+import {Routes, Route, Link} from 'react-router-dom';
+import Login from '../../pages/login';
 
 
 function App() {
@@ -33,15 +35,19 @@ function App() {
   return (
     <div className={styles.app}>
       <DndProvider backend={HTML5Backend}>
-        <AppHeader />
+        <AppHeader />      
         {isError ? <h2 className={styles.error}>Ошибка загрузки данных с сервера</h2> :
           <main className={styles.main}>
             {stateData.length && <BurgerIngredients />}
             {stateData.length && <BurgerConstructor />}
           </main>
         } 
-        </DndProvider>
+        <Routes>
+          <Route path="/login" element={<Login />}/>
+        </Routes>
+      </DndProvider>
     </div>
+    
   );
 }
 

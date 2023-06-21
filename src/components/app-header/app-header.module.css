@@ -22,13 +22,23 @@
   
 }
 
-.list_lement {
+.list_element {
+  border: 1px solid green;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
+  /* justify-content: start; */
+  
 }
 
 .logopicture {
   margin:auto;
+}
+
+.menu_point {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
 }
