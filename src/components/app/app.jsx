@@ -8,43 +8,21 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend"
 import {Routes, Route, Link} from 'react-router-dom';
 import Login from '../../pages/login';
+import Home from "../../pages/home/home";
 
 
 function App() {
 
-  const [stateData, setStateData] = React.useState([]);
-  const [isError, setIsError] = React.useState(false);
-
-
-  React.useEffect(() => {
-    const getData = async () => {
-      try {
-          const burgerData = await getIngredientsData();
-          setStateData(burgerData.data); 
-          }
-      catch (err) {
-        setIsError(true);
-        console.log('Ошибка загрузки данных', err);
-      }
-    }
-
-    getData();
-
-  }, []); 
-
   return (
     <div className={styles.app}>
       <DndProvider backend={HTML5Backend}>
-        <AppHeader />      
-        {isError ? <h2 className={styles.error}>Ошибка загрузки данных с сервера</h2> :
-          <main className={styles.main}>
-            {stateData.length && <BurgerIngredients />}
-            {stateData.length && <BurgerConstructor />}
-          </main>
-        } 
+        <AppHeader /> 
         <Routes>
+          <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
-        </Routes>
+          
+        </Routes>     
+       
       </DndProvider>
     </div>
     
