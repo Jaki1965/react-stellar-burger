@@ -21,7 +21,6 @@
 }
 
 .list_element {
-  /* border: 1px solid green; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -40,16 +39,16 @@
   color: #8585AD;
   
 }
-
+.menu_point_active {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: 0.5s;
+  color: #fff;
+  
+}
 .menu_point:hover {
   color: #fff;
 }
 
-.list_element_text {
-  color: #8585AD;
-  transition: 0.5s;
-}
-
-.list_element_text:hover {
-  color: #fff;
-}

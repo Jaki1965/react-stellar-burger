@@ -1,0 +1,33 @@
+
+
+.not_found {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.not_found_text {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.not_found_text_description {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 150px;
+}
+
+
+.not_found_button {
+  margin-left: auto;
+  margin-right: auto;
+}

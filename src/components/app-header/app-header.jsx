@@ -1,39 +1,42 @@
 
-import {Logo} from '@ya.praktikum/react-developer-burger-ui-components';
-import {BurgerIcon} from '@ya.praktikum/react-developer-burger-ui-components';
-import {ListIcon} from '@ya.praktikum/react-developer-burger-ui-components';
-import {ProfileIcon} from '@ya.praktikum/react-developer-burger-ui-components';
+import {Logo, BurgerIcon, ListIcon, ProfileIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './app-header.module.css';
-import {Routes, Route, Link} from 'react-router-dom';
+import {NavLink, useMatch} from 'react-router-dom';
 
 
 
 
 function AppHeader() {
+  const className = ({isActive}) => isActive ? `${styles.menu_point_active}` : `${styles.menu_point}`;
+  const home = useMatch('/');
+  const listOrders = useMatch('/list-orders');
+  const login = useMatch('/login');
+
+  
   return (
     <header className={styles.header}>
       <nav className={styles.header_nav}>
         <ul className={styles.header_list}>
           <li className={`${styles.list_element} pl-5 pr-5`}>
-          <Link to='/' className={styles.menu_point}>
-            <BurgerIcon type="primary"/>
+          <NavLink to='/' className={className}>
+            <BurgerIcon type={home ? "primary" : "secondary" } />
             <p className="text text_type_main-default m-2">Конструктор</p>
-          </Link>
+          </NavLink>
           </li>
           <li className={`${styles.list_element} pl-5 pr-5`}>
-            <Link to='/register'  className={styles.menu_point}>
-              <ListIcon type="secondary"/>
-              <p className={`${styles.list_element_text} text text_type_main-default text_color_inactive m-2`}>Лента заказов</p>
-            </Link>
+            <NavLink to='/list-orders'  className={className}>
+              <ListIcon type={listOrders ? "primary" : "secondary" }/>
+              <p className= "text text_type_main-default m-2">Лента заказов</p>
+            </NavLink>
           </li>
           <li className={`${styles.logopicture} pt-1`}>
             <Logo />
           </li>
           <li className={`${styles.list_element} pl-5 pr-5`}>
-            <Link to='/login' className={styles.menu_point}>
-              <ProfileIcon type="secondary" />
-              <p  className = {`${styles.list_element_text} text text_type_main-default text_color_inactive m-2`}>Личный кабинет</p>
-            </Link>
+            <NavLink to='/login' className={className}>
+              <ProfileIcon type={login ? "primary" : "secondary" } />
+              <p  className = "text text_type_main-default m-2">Личный кабинет</p>
+            </NavLink>
           </li>
         </ul>
       </nav>

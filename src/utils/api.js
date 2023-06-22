@@ -1,6 +1,10 @@
 
 const urlData = 'https://norma.nomoreparties.space/api/ingredients';
 const urlOrder = 'https://norma.nomoreparties.space/api/orders';
+const urlResetEmail = `https://norma.nomoreparties.space/api/password-reset`;
+const email = {
+  "email": ""
+}
 
 
 const checkResponse = (res) => {
@@ -24,4 +28,15 @@ const getOrderNumber = (ingredients) => {
   .then(checkResponse)
 };
 
-export {getIngredientsData, getOrderNumber}
+const getResetEmail = (email) => {
+  return fetch(urlResetEmail, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({email})
+  })
+  .then(checkResponse)
+};
+
+
+
+export {getIngredientsData, getOrderNumber, getResetEmail}

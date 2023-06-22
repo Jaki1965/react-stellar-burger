@@ -1,0 +1,46 @@
+
+.profile {
+  column-gap: 60px;
+  display: flex;
+  justify-content: flex-start;
+  margin: 120px 0 0 380px;
+  width: 100%;
+}
+
+.profile_form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profile_menu {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+}
+
+.profile_link_active {
+  color: #F2F2F3;
+  text-decoration: none;
+}
+
+.profile_link_active:hover {
+  opacity: 0.5;
+}
+
+
+.profile_link {
+  align-items: center;
+  display: flex;
+  min-height: 64px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.4s ;
+}
+
+.profile_link:hover {
+  opacity: 0.6;
+}
+
+

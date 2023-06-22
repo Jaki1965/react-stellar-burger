@@ -2,6 +2,7 @@ import styles from './forgot-password.module.css';
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from 'react';
 import { Input, Button } from '@ya.praktikum/react-developer-burger-ui-components';
+import {getResetEmail} from '../../utils/api';
 
 
 function ForgotPassword() {
@@ -11,8 +12,11 @@ function ForgotPassword() {
 
     const navigate = useNavigate();
 
+   
+
     function goResetPassword(){
-      navigate('/reset-password', { replace: true });
+      getResetEmail()
+      navigate('/reset-password', { replace: true }); // это надо будет выполнить если нормально пройдет post запрос
     }
     
 
