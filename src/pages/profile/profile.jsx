@@ -12,6 +12,9 @@ function Profile() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const classStyles = ({ isActive }) => isActive ? `${styles.profile_link} text text_type_main-medium ${styles.profile_link_active}` :
+    `${styles.profile_link} text text_type_main-medium text_color_inactive`;
+
 
     return (
       <>
@@ -19,20 +22,17 @@ function Profile() {
           <nav className={styles.profile_menu}>
             <NavLink
               to={'/profile'}
-              className={({ isActive }) => isActive ? `${styles.profile_link} text text_type_main-medium ${styles.profile_link_active}` :
-                  `${styles.profile_link} text text_type_main-medium text_color_inactive`}>
+              className={classStyles}>
               Профиль
             </NavLink>
             <NavLink
               to={'/profile/orders'}
-              className={({ isActive }) => isActive ? `${styles.profile_link} text text_type_main-medium ${styles.profile_link_active}` :
-                  `${styles.profile_link} text text_type_main-medium text_color_inactive`}>
+              className={classStyles}>
               История заказов
             </NavLink>
             <NavLink
-              to={'/logout'}
-              className={({ isActive }) => isActive ? `${styles.profile_link} text text_type_main-medium ${styles.profile_link_active}` :
-                  `${styles.profile_link} text text_type_main-medium text_color_inactive`}>
+              to={'/'}
+              className={classStyles}>
               Выход
             </NavLink>
             <span className="text text_type_main-small text_color_inactive pt-20">
